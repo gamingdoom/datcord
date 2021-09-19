@@ -1,0 +1,21 @@
+{
+    "stages": "1",
+    "build_libcxx": true,
+    "build_wasm": true,
+    "build_type": "Release",
+    "assertions": false,
+    "osx_cross_compile": true,
+    "cc": "{MOZ_FETCHES_DIR}/clang/bin/clang",
+    "cxx": "{MOZ_FETCHES_DIR}/clang/bin/clang++",
+    "as": "{MOZ_FETCHES_DIR}/clang/bin/clang",
+    "ar": "{MOZ_FETCHES_DIR}/cctools/bin/x86_64-apple-darwin-ar",
+    "ranlib": "{MOZ_FETCHES_DIR}/cctools/bin/x86_64-apple-darwin-ranlib",
+    "libtool": "{MOZ_FETCHES_DIR}/cctools/bin/x86_64-apple-darwin-libtool",
+    "ld": "{MOZ_FETCHES_DIR}/clang/bin/clang",
+    "wasi-sysroot": "{MOZ_FETCHES_DIR}/wasi-sysroot",
+    "patches": [
+      "static-llvm-symbolizer.patch",
+      "compiler-rt-cross-compile.patch",
+      "compiler-rt-no-codesign.patch"
+    ]
+}

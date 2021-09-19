@@ -1,0 +1,15 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+# This file specifies the build flags for Firefox.  You can use it by adding:
+#  . $topsrcdir/browser/config/mozconfig
+# to the top of your mozconfig file.
+
+ac_add_options --enable-application=browser
+ac_add_options --prefix=/usr
+ac_add_options --with-app-name=datcord
+ac_add_options --with-app-basename=datcord
+ac_add_options --with-branding=browser/branding/librewolf
+ac_add_options --allow-addon-sideload
+mk_add_options MOZ_MAKE_FLAGS="-j12"
