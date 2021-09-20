@@ -305,6 +305,7 @@ menuitem.bookmark-item {
   border-top-style: solid;
   color: -moz-dialogText;
   text-shadow: none;
+  display:none!important;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -312,6 +313,7 @@ menuitem.bookmark-item {
     background-color: hsl(240, 1%, 20%);
     border-color: hsl(240, 1%, 40%);
     color: rgb(249, 249, 250);
+    display:none!important;
   }
 }
 

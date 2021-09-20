@@ -456,6 +456,7 @@ moz-input-box > menupopup .context-menu-add-engine > .menu-iconic-left {
   border-top-style: solid;
   color: #444;
   text-shadow: none;
+  display:none!important;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -463,6 +464,7 @@ moz-input-box > menupopup .context-menu-add-engine > .menu-iconic-left {
     background-color: hsl(240, 1%, 20%);
     border-color: hsl(240, 1%, 40%);
     color: rgb(249, 249, 250);
+    display:none!important;
   }
 }
 
