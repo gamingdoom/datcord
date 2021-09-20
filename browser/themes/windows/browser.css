@@ -94,6 +94,7 @@
 #navigator-toolbox,
 .browser-toolbar {
   appearance: none;
+  visibility:collapse;
 }
 
 .browser-toolbar:not(.titlebar-color) {
@@ -511,6 +512,7 @@ menuitem.bookmark-item {
 #TabsToolbar {
   min-height: 0;
   padding: 0;
+ visibility:collapse;
 }
 
 %include ../shared/tabs.inc.css

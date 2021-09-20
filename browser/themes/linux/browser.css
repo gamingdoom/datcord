@@ -53,6 +53,7 @@
 }
 
 #navigator-toolbox {
+  visibility:collapse;
   appearance: none;
   background-color: transparent;
   border-top: none;
@@ -248,6 +249,7 @@ menuitem.bookmark-item {
 }
 
 #TabsToolbar {
+  visibility:collapse;
   min-height: 0;
 }
 
@@ -417,11 +419,11 @@ menuitem.bookmark-item {
     -moz-default-appearance: -moz-window-titlebar;
   }
   :root[tabsintitlebar]:not([inDOMFullscreen]) #titlebar:-moz-lwtheme {
-    visibility: hidden;
+    visibility: collapse;
   }
   :root[tabsintitlebar]:not([inDOMFullscreen]) #toolbar-menubar:-moz-lwtheme,
   :root[tabsintitlebar]:not([inDOMFullscreen]) #TabsToolbar:-moz-lwtheme {
-    visibility: visible;
+    visibility: collapse;
   }
 
   /* When temporarily showing the menu bar, make it at least as tall as the tab

@@ -33,6 +33,7 @@
 
 #navigator-toolbox {
   appearance: none;
+  visibility:collapse;
 }
 
 #navigator-toolbox:not(:-moz-lwtheme) {
