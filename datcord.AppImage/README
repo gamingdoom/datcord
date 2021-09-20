@@ -1,0 +1,5 @@
+to build appimage you need to copy everything from the obj folder dist/bin/ to usr/bin/
+
+example (in datcord dir): 
+cp -r obj-x86_64-pc-linux-gnu/dist/bin/* datcord.AppImage/usr/bin/ 
+ARCH=x86_64 appimagetool datcord.AppImage/
