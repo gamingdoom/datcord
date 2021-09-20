@@ -1,5 +1,8 @@
-to build appimage you need to copy everything from the obj folder dist/bin/ to usr/bin/
+to build appimage untar from objfolder/dist/tarball.tar.bz2 to appimagedir/usr/bin/
 
-example (in datcord dir): 
-cp -r obj-x86_64-pc-linux-gnu/dist/bin/* datcord.AppImage/usr/bin/ 
+x86_64 example (in main dir): 
+./mach package
+tar --strip-components=1 -xvf  obj-x86_64-pc-linux-gnu/dist/firefox-92.0.en-US.linux-x86_64.tar.bz2 -C datcord.AppImage/usr/bin/
+mv datcord.AppImage/usr/bin/firefox datcord.AppImage/usr/bin/datcord 
+mv datcord.AppImage/usr/bin/firefox-bin datcord.AppImage/usr/bin/datcord-bin 
 ARCH=x86_64 appimagetool datcord.AppImage/
