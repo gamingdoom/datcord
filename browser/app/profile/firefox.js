@@ -263,7 +263,7 @@ pref("browser.touchmode.auto", true);
 pref("browser.compactmode.show", false);
 
 // At startup, check if we're the default browser and prompt user if not.
-pref("browser.shell.checkDefaultBrowser", true);
+pref("browser.shell.checkDefaultBrowser", false);
 pref("browser.shell.shortcutFavicons",true);
 pref("browser.shell.mostRecentDateSetAsDefault", "");
 pref("browser.shell.skipDefaultBrowserCheckOnFirstRun", true);
@@ -279,7 +279,7 @@ pref("browser.shell.setDefaultBrowserUserChoice", true);
 // 0 = blank, 1 = home (browser.startup.homepage), 2 = last visited page, 3 = resume previous browser session
 // The behavior of option 3 is detailed at: http://wiki.mozilla.org/Session_Restore
 pref("browser.startup.page",                1);
-pref("browser.startup.homepage",            "about:home");
+pref("browser.startup.homepage",            "discord.com/app");
 #ifdef NIGHTLY_BUILD
 pref("browser.startup.homepage.abouthome_cache.enabled", true);
 #else
@@ -357,13 +357,13 @@ pref("browser.urlbar.maxHistoricalSearchSuggestions", 2);
 
 // The default behavior for the urlbar can be configured to use any combination
 // of the match filters with each additional filter adding more results (union).
-pref("browser.urlbar.suggest.bookmark",             true);
-pref("browser.urlbar.suggest.history",              true);
-pref("browser.urlbar.suggest.openpage",             true);
-pref("browser.urlbar.suggest.searches",             true);
-pref("browser.urlbar.suggest.topsites",             true);
-pref("browser.urlbar.suggest.engines",              true);
-pref("browser.urlbar.suggest.quicksuggest",         true);
+pref("browser.urlbar.suggest.bookmark",             false);
+pref("browser.urlbar.suggest.history",              false);
+pref("browser.urlbar.suggest.openpage",             false);
+pref("browser.urlbar.suggest.searches",             false);
+pref("browser.urlbar.suggest.topsites",             false);
+pref("browser.urlbar.suggest.engines",              false);
+pref("browser.urlbar.suggest.quicksuggest",         false);
 pref("browser.urlbar.suggest.calculator",           false);
 
 // Whether the QuickSuggest experiment is enabled.
@@ -544,17 +544,17 @@ pref("permissions.manager.defaultsUrl", "resource://app/defaults/permissions");
 
 // Set default fallback values for site permissions we want
 // the user to be able to globally change.
-pref("permissions.default.camera", 0);
-pref("permissions.default.microphone", 0);
+pref("permissions.default.camera", 1);
+pref("permissions.default.microphone", 1);
 pref("permissions.default.geo", 0);
 pref("permissions.default.xr", 0);
-pref("permissions.default.desktop-notification", 0);
+pref("permissions.default.desktop-notification", 1);
 pref("permissions.default.shortcuts", 0);
 
 pref("permissions.desktop-notification.postPrompt.enabled", true);
 pref("permissions.desktop-notification.notNow.enabled", false);
 
-pref("permissions.fullscreen.allowed", false);
+pref("permissions.fullscreen.allowed", true);
 
 // handle links targeting new windows
 // 1=current window/tab, 2=new window, 3=new tab in most recent window

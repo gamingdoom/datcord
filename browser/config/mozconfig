@@ -6,10 +6,28 @@
 #  . $topsrcdir/browser/config/mozconfig
 # to the top of your mozconfig file.
 
-ac_add_options --enable-application=browser
-ac_add_options --prefix=/usr
-ac_add_options --with-app-name=datcord
+
+ac_add_options --with-app-name=Datcord
 ac_add_options --with-app-basename=datcord
-ac_add_options --with-branding=browser/branding/librewolf
+ac_add_options --enable-official-branding
+#ac_add_options --with-branding=browser/branding/datcord
+ac_add_options --enable-update-channel=release
+ac_add_options MOZ_TELEMETRY_REPORTING=
 ac_add_options --allow-addon-sideload
+
+
 mk_add_options MOZ_MAKE_FLAGS="-j12"
+
+export MOZ_APP_PROFILE="Datcord"
+
+# ubuntu seems to recommend this
+ac_add_options --disable-elf-hack
+
+export CC='clang-12'
+export CXX='clang++-12'
+export AR=llvm-ar-12
+export NM=llvm-nm-12
+export RANLIB=llvm-ranlib-12
+
+# probably not needed, enabled by default?
+ac_add_options --enable-optimize
