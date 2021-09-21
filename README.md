@@ -8,6 +8,8 @@ cd datcord
 
 # Building from source
 
+Edit makeflags in browser/config/mozconfig (default is -j12)
+
 ```
 ./mach bootstrap
 ./mach build
