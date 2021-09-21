@@ -314,7 +314,7 @@ pref("toolkit.lazyHiddenWindow", true);
 
 pref("browser.chrome.site_icons", true);
 // browser.warnOnQuit == false will override all other possible prompts when quitting or restarting
-pref("browser.warnOnQuit", true);
+pref("browser.warnOnQuit", false);
 
 // TODO bug 1702563: Renable fullscreen autohide by default on macOS.
 #ifdef XP_MACOSX
