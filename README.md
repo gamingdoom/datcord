@@ -3,7 +3,7 @@
 
 # Install
 - # Linux
-  - ## Appimage (easiest)
+  - ## Appimage (easiest) (broken)
     - Grab the AppImage from [releases](https://github.com/gamingdoom/datcord/releases/) and run it.
   - ## Tarball
     - Grab the tarball from the releases then,
