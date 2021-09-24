@@ -302,16 +302,16 @@ static nsresult GetSystemParentDirectory(nsIFile** aFile) {
   rv = GetOSXFolderType(kOnSystemDisk, kApplicationSupportFolderType,
                         getter_AddRefs(localDir));
   if (NS_SUCCEEDED(rv)) {
-    rv = localDir->AppendNative("Mozilla"_ns);
+    rv = localDir->AppendNative("Datcord"_ns);
   }
 #  else
   constexpr auto dirname =
 #    ifdef HAVE_USR_LIB64_DIR
-      "/usr/lib64/mozilla"_ns
+      "/usr/lib64/datcord"_ns
 #    elif defined(__OpenBSD__) || defined(__FreeBSD__)
-      "/usr/local/lib/mozilla"_ns
+      "/usr/local/lib/datcord"_ns
 #    else
-      "/usr/lib/mozilla"_ns
+      "/usr/lib/datcord"_ns
 #    endif
       ;
   rv = NS_NewNativeLocalFile(dirname, false, getter_AddRefs(localDir));
@@ -417,9 +417,9 @@ nsXREDirProvider::GetFile(const char* aProperty, bool* aPersistent,
     rv = GetUserDataDirectoryHome(getter_AddRefs(localDir), false);
     if (NS_SUCCEEDED(rv)) {
 #  if defined(XP_MACOSX)
-      rv = localDir->AppendNative("Mozilla"_ns);
+      rv = localDir->AppendNative("Datcord"_ns);
 #  else
-      rv = localDir->AppendNative(".mozilla"_ns);
+      rv = localDir->AppendNative(".datcord"_ns);
 #  endif
     }
     if (NS_SUCCEEDED(rv)) {
@@ -469,9 +469,9 @@ nsXREDirProvider::GetFile(const char* aProperty, bool* aPersistent,
   else if (!strcmp(aProperty, XRE_SYS_SHARE_EXTENSION_PARENT_DIR)) {
 #  ifdef ENABLE_SYSTEM_EXTENSION_DIRS
 #    if defined(__OpenBSD__) || defined(__FreeBSD__)
-    static const char* const sysLExtDir = "/usr/local/share/mozilla/extensions";
+    static const char* const sysLExtDir = "/usr/local/share/datcord/extensions";
 #    else
-    static const char* const sysLExtDir = "/usr/share/mozilla/extensions";
+    static const char* const sysLExtDir = "/usr/share/datcord/extensions";
 #    endif
     return NS_NewNativeLocalFile(nsDependentCString(sysLExtDir), false, aFile);
 #  else
@@ -1282,7 +1282,7 @@ nsresult nsXREDirProvider::GetUpdateRootDir(nsIFile** aResult,
             nsDependentCString(hasVendor ? GetAppVendor() : GetAppName())))) {
       return NS_ERROR_FAILURE;
     }
-  } else if (NS_FAILED(localDir->AppendNative("Mozilla"_ns))) {
+  } else if (NS_FAILED(localDir->AppendNative("Datcord"_ns))) {
     return NS_ERROR_FAILURE;
   }
 
@@ -1588,7 +1588,7 @@ nsresult nsXREDirProvider::AppendSysUserExtensionPath(nsIFile* aFile) {
 
 #if defined(XP_MACOSX) || defined(XP_WIN)
 
-  static const char* const sXR = "Mozilla";
+  static const char* const sXR = "Datcord";
   rv = aFile->AppendNative(nsDependentCString(sXR));
   NS_ENSURE_SUCCESS(rv, rv);
 
@@ -1598,7 +1598,7 @@ nsresult nsXREDirProvider::AppendSysUserExtensionPath(nsIFile* aFile) {
 
 #elif defined(XP_UNIX)
 
-  static const char* const sXR = ".mozilla";
+  static const char* const sXR = ".datcord";
   rv = aFile->AppendNative(nsDependentCString(sXR));
   NS_ENSURE_SUCCESS(rv, rv);
 
@@ -1619,7 +1619,7 @@ nsresult nsXREDirProvider::AppendSysUserExtensionsDevPath(nsIFile* aFile) {
 
 #if defined(XP_MACOSX) || defined(XP_WIN)
 
-  static const char* const sXR = "Mozilla";
+  static const char* const sXR = "Datcord";
   rv = aFile->AppendNative(nsDependentCString(sXR));
   NS_ENSURE_SUCCESS(rv, rv);
 
@@ -1629,7 +1629,7 @@ nsresult nsXREDirProvider::AppendSysUserExtensionsDevPath(nsIFile* aFile) {
 
 #elif defined(XP_UNIX)
 
-  static const char* const sXR = ".mozilla";
+  static const char* const sXR = ".datcord";
   rv = aFile->AppendNative(nsDependentCString(sXR));
   NS_ENSURE_SUCCESS(rv, rv);
 
