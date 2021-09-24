@@ -34,6 +34,7 @@ jobs:
         run: |
           sudo apt upgrade && sudo apt upgrade
           sudo apt install neofetch
+          neofetch
       - name: Cache
         uses: actions/cache@v2.1.6
         with:
