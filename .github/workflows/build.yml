@@ -33,6 +33,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           sudo apt upgrade && sudo apt upgrade
+          sudo apt install neofetch
       - name: Cache
         uses: actions/cache@v2.1.6
         with:
