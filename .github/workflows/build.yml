@@ -38,7 +38,7 @@ jobs:
           export MOZBUILD_STATE_PATH=.mozbuild
           sudo apt-get install python3 python3-distutils python3-pip build-essential libpython3-dev m4 nodejs unzip uuid zip libasound2-dev libcurl4-openssl-dev libdbus-1-dev libdbus-glib-1-dev libdrm-dev libgtk-3-dev libpulse-dev libx11-xcb-dev libxt-dev xvfb nasm-mozilla rustc clang
           pip3 install --upgrade setuptools
-          sudo pip3 install glean_sdk
+          sudo -H pip3 install glean_sdk wheel
           pip3 install zstandard==0.15.2 cffi>=1.13.0 glean-parser==2.5.0 appdirs>=1.4 Click>=7 diskcache>=4 importlib-metadata iso8601>=0.1.10 Jinja2>=2.10.1 jsonschema>=3.0.2 attrs>=17.4.0 MarkupSafe>=2.0 pycparser pyrsistent>=0.14.0 PyYAML>=3.13 six>=1.11.0 typing-extensions>=3.6.4  yamllint>=1.18.0  pathspec>=0.5.3 zipp>=0.5 psutil==5.8.0 
           ./mach create-mach-environment
           sudo apt remove nasm
