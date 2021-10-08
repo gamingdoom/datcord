@@ -175,3 +175,5 @@ obj-x86_64-pc-linux-gnu
 
 datcord.AppImage/usr/bin/*
 Datcord-x86_64.AppImage
+ipc/chromium/src/third_party/libevent/evconfig-private.h
+
