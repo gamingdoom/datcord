@@ -1,0 +1,3 @@
+[submodule "lss"]
+  path=third_party/lss/
+  url=https://chromium.googlesource.com/linux-syscall-support
