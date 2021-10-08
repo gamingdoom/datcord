@@ -69,7 +69,7 @@ jobs:
           # Artifact name
           name: appimage
           # A file, directory or wildcard pattern that describes what to upload
-          path: datcord-x86_64.AppImage
+          path: '*.AppImage'
           
       - name: Cache
         uses: actions/cache@v2.1.6
