@@ -45,6 +45,7 @@ jobs:
           cargo install cbindgen
           git clone https://chromium.googlesource.com/linux-syscall-support
           cp linux-syscall-support/linux_syscall_support.h toolkit/crashreporter/breakpad-client/linux/crash_generation/third_party/lss/linux_syscall_support.h
+          cp linux-syscall-support/linux_syscall_support.h third_party/lss/linux_syscall_support.h
           ./mach build
           ./mach package
           
