@@ -18,7 +18,6 @@ ac_add_options --disable-crashreporter
 
 
 mk_add_options MOZ_MAKE_FLAGS="-j{j}"
-mk_add_options AUTOCLOBBER=1
 
 export MOZ_APP_PROFILE="Datcord"
 
