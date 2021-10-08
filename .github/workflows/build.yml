@@ -47,6 +47,7 @@ jobs:
           
       - name: Appimage it
         run: |
+            mkdir -p datcord.AppImage/usr/bin/
             ./mkappimagex86_64
           
       - name: Upload a Build Artifact
