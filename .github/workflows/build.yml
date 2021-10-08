@@ -59,9 +59,9 @@ jobs:
         uses: actions/upload-artifact@v2.2.4
         with:
           # Artifact name
-          name: obj dist
+          name: obj dist linux
           # A file, directory or wildcard pattern that describes what to upload
-          path: obj-x86_64-pc-linux-gnu/dist/*
+          path: obj-x86_64-pc-linux-gnu/dist/*.tar.bz2
           
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.4
