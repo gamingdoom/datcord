@@ -37,6 +37,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Get deps, build and package
         run: |
+          ls
           sudo apt upgrade && sudo apt update
           mkdir .mozbuild
           export MOZBUILD_STATE_PATH=.mozbuild
