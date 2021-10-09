@@ -219,7 +219,7 @@ pref("lightweightThemes.getMoreURL", "https://addons.mozilla.org/%LOCALE%/firefo
 #endif
 
 // UI tour experience.
-pref("browser.uitour.enabled", true);
+pref("browser.uitour.enabled", false);
 pref("browser.uitour.loglevel", "Error");
 pref("browser.uitour.requireSecure", true);
 pref("browser.uitour.themeOrigin", "https://addons.mozilla.org/%LOCALE%/firefox/themes/");
@@ -558,7 +558,7 @@ pref("permissions.fullscreen.allowed", true);
 
 // handle links targeting new windows
 // 1=current window/tab, 2=new window, 3=new tab in most recent window
-pref("browser.link.open_newwindow", 3);
+pref("browser.link.open_newwindow", 2);
 
 // handle external links (i.e. links opened from a different application)
 // default: use browser.link.open_newwindow
@@ -594,9 +594,9 @@ pref("browser.tabs.insertRelatedAfterCurrent", true);
 // for non-related links. Note that if this is set to true, it will trump
 // the value of browser.tabs.insertRelatedAfterCurrent.
 pref("browser.tabs.insertAfterCurrent", false);
-pref("browser.tabs.warnOnClose", true);
-pref("browser.tabs.warnOnCloseOtherTabs", true);
-pref("browser.tabs.warnOnOpen", true);
+pref("browser.tabs.warnOnClose", false);
+pref("browser.tabs.warnOnCloseOtherTabs", false);
+pref("browser.tabs.warnOnOpen", false);
 pref("browser.tabs.maxOpenBeforeWarn", 15);
 pref("browser.tabs.loadInBackground", true);
 pref("browser.tabs.opentabfor.middleclick", true);
