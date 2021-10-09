@@ -29,7 +29,6 @@ jobs:
           choco install mozillabuild
           C:\mozilla-build\start-shell.bat
 	  cd $GITHUB_WORKSPACE
-	  ./mach build
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.4
