@@ -26,6 +26,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
+          ls
           choco install mozillabuild
           C:\mozilla-build\start-shell.bat
 	  cd $GITHUB_WORKSPACE
