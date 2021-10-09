@@ -171,7 +171,7 @@ testing/raptor/webext/raptor/auto_gen_test_config.js
 
 # Ignore built shit
 
-obj-x86_64-pc-linux-gnu
+obj-*
 
 datcord.AppImage/usr/bin/*
 Datcord-x86_64.AppImage
