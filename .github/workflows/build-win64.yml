@@ -1,4 +1,4 @@
-name: build-win64
+name: Build-Windows
 
 # Controls when the workflow will run
 on:
