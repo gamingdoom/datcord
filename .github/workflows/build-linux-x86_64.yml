@@ -52,6 +52,7 @@ jobs:
           mkdir -p toolkit/crashreporter/google-breakpad/src/third_party/lss/
           cp linux-syscall-support/linux_syscall_support.h toolkit/crashreporter/google-breakpad/src/third_party/lss/linux_syscall_support.h
           cp linux-syscall-support/linux_syscall_support.h third_party/lss/linux_syscall_support.h
+          cp mconfd/mozconfig-linux-x86_64 mozconfig
           ./mach clobber
           ./mach build
           ./mach package
