@@ -81,6 +81,5 @@ jobs:
           name: appimage
           # A file, directory or wildcard pattern that describes what to upload
           path: |
-            '!appimagetool-x86_64.AppImage'
-            '*.AppImage'
+            Datcord-x86_64.AppImage
             
