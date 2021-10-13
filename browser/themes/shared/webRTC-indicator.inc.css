@@ -7,6 +7,7 @@
 
 :root {
   appearance: none;
+  display: none;
   background: transparent;
   border: 0;
   border-radius: 5px;
@@ -50,7 +51,7 @@
 }
 
 body {
-  display: inline-flex;
+  display: none;
   background-color: var(--indicator-background-color);
   color: var(--indicator-color);
   margin: 0;
@@ -73,6 +74,7 @@ body {
 button,
 input[type="checkbox"] {
   appearance: none;
+  display: none;
   border-style: none;
   margin: 0;
   -moz-context-properties: fill, fill-opacity;
@@ -84,7 +86,7 @@ input[type="checkbox"] {
 }
 
 .row-item {
-  display: flex;
+  display: none;
   align-items: center;
   min-width: 30px;
   margin-block: 5px;
@@ -95,6 +97,7 @@ input[type="checkbox"] {
 
 .separator {
   border-inline-end: var(--indicator-item-separator);
+  display: none;
   min-width: 1px;
   padding: 0;
 }
@@ -125,6 +128,7 @@ input[type="checkbox"] {
 
 xul|menu {
   overflow: hidden;
+  display: none;
   min-height: 0 !important;
   height: 0 !important;
   width: 0 !important;
@@ -133,6 +137,7 @@ xul|menu {
 }
 
 .control-icon {
+  display: none;
   background-position: center;
   background-size: 16px;
   background-color: transparent;
@@ -168,6 +173,7 @@ xul|menu {
 
 #display-share-icon {
   background-image: url("chrome://browser/skin/notification-icons/screen.svg");
+  display: none;
   width: 16px;
   height: 16px;
   margin-inline: 5px 10px;
@@ -194,6 +200,7 @@ xul|menu {
 
 .stop-button {
   background-color: var(--indicator-stop-button-background-color);
+  display: none;
   color: var(--indicator-stop-button-color);
   border-radius: 5px;
   padding: 3px 5px;
@@ -205,13 +212,14 @@ xul|menu {
 }
 
 #window-controls {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
 }
 
 #minimize {
   padding: 10px;
+  display: none;
   min-width: unset;
   background-image: url("chrome://browser/skin/notification-icons/minimize.svg");
   background-color: var(--minimize-button-background-color);
@@ -227,6 +235,7 @@ xul|menu {
 
 #drag-indicator {
   background-image: url("chrome://browser/skin/notification-icons/drag-indicator.svg");
+  display: none;
   background-repeat: no-repeat;
   background-position: center;
   width: 5px;
