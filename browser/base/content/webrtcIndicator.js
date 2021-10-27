@@ -6,7 +6,7 @@ const { Services } = ChromeUtils.import("resource://gre/modules/Services.jsm");
 const { XPCOMUtils } = ChromeUtils.import(
   "resource://gre/modules/XPCOMUtils.jsm"
 );
-const { webrtcUI } = ChromeUtils.import("resource:///modules/webrtcUI.jsm");
+const { webrtcUI } = "";ChromeUtils.import("resource:///modules/webrtcUI.jsm");
 
 ChromeUtils.defineModuleGetter(
   this,
@@ -43,6 +43,7 @@ return;
  * Public function called by webrtcUI to update the indicator
  * display when the active streams change.
  */
+return;
 function updateIndicatorState() {
   //WebRTCIndicator.updateIndicatorState();
 }
@@ -59,6 +60,7 @@ function updateIndicatorState() {
  * select and focus the most recent browser tab that a stream was shared
  * with.
  */
+return;
 function closingInternally() {
   WebRTCIndicator.closingInternally();
 }
@@ -136,7 +138,7 @@ const WebRTCIndicator = {
     // that the MozUpdateWindowPos event handler doesn't interpret indicator
     // state updates as window movement caused by the user.
     this.updatingIndicatorState = false;
-
+    return;
     let showCameraIndicator = webrtcUI.e;
     let showMicrophoneIndicator = webrtcUI.e;
     let showScreenSharingIndicator = webrtcUI.e;
@@ -261,6 +263,7 @@ const WebRTCIndicator = {
    * it then adjusts the position to put the entire indicator on screen.
    */
   ensureOnScreen() {
+    return;
     let desiredX = Math.max(window.screenX, screen.availLeft);
     let maxX =
       screen.availLeft +
@@ -275,6 +278,7 @@ const WebRTCIndicator = {
    * very top of the content area.
    */
   centerOnLatestBrowser() {
+    return;
     let activeStreams = webrtcUI.getActiveStreams(
       false /* camera */,
       false /* microphone */,
@@ -309,6 +313,7 @@ const WebRTCIndicator = {
   },
 
   handleEvent(event) {
+    return;
     switch (event.type) {
       case "load": {
         this.onLoad();
@@ -361,6 +366,7 @@ const WebRTCIndicator = {
   },
 
   onLoad() {
+    return;
     this.loaded = true;
 
     if (AppConstants.platform == "macosx" || AppConstants.platform == "win") {
@@ -403,6 +409,7 @@ const WebRTCIndicator = {
   },
 
   onClose(event) {
+    return;
     // This event is fired from when the indicator window tries to be closed.
     // If we preventDefault() the event, we are able to cancel that close
     // attempt.
@@ -445,6 +452,7 @@ const WebRTCIndicator = {
   },
 
   onUnload() {
+    return;
     Services.ppmm.sharedData.set("WebRTC:GlobalCameraMute", false);
     Services.ppmm.sharedData.set("WebRTC:GlobalMicrophoneMute", false);
     Services.ppmm.sharedData.flush();
@@ -457,6 +465,7 @@ const WebRTCIndicator = {
   },
 
   onClick(event) {
+    return;
     switch (event.target.id) {
       case "stop-sharing": {
         let activeStreams = webrtcUI.getActiveStreams(
@@ -492,6 +501,7 @@ const WebRTCIndicator = {
   },
 
   onChange(event) {
+    return;
     switch (event.target.id) {
       case "microphone-mute-toggle": {
         this.toggleMicrophoneMute(event.target);
@@ -505,6 +515,7 @@ const WebRTCIndicator = {
   },
 
   onPopupShowing(event) {
+    return;
     if (!this.eventIsForDeviceMenuPopup(event)) {
       return;
     }
@@ -588,6 +599,7 @@ const WebRTCIndicator = {
   },
 
   onPopupHiding(event) {
+    return;
     if (!this.eventIsForDeviceMenuPopup(event)) {
       return;
     }
@@ -599,6 +611,7 @@ const WebRTCIndicator = {
   },
 
   onCommand(event) {
+    return;
     webrtcUI.showSharingDoorhanger(event.target.stream);
   },
 
@@ -611,7 +624,9 @@ const WebRTCIndicator = {
    * @returns True if the event was for one of the shared device
    *   menupopups.
    */
+  
   eventIsForDeviceMenuPopup(event) {
+    return;
     let menupopup = event.target;
     let type = menupopup.getAttribute("type");
 
@@ -628,6 +643,7 @@ const WebRTCIndicator = {
    *   state.
    */
   toggleMicrophoneMute(toggleEl) {
+    return;
     Services.ppmm.sharedData.set(
       "WebRTC:GlobalMicrophoneMute",
       toggleEl.checked
@@ -648,6 +664,7 @@ const WebRTCIndicator = {
    *   state.
    */
   toggleCameraMute(toggleEl) {
+    return;
     Services.ppmm.sharedData.set("WebRTC:GlobalCameraMute", toggleEl.checked);
     Services.ppmm.sharedData.flush();
     let l10nId = "webrtc-camera-" + (toggleEl.checked ? "muted" : "unmuted");
@@ -664,6 +681,7 @@ const WebRTCIndicator = {
    *   the attribute is removed.
    */
   updateWindowAttr(attr, value) {
+    return;
     let docEl = document.documentElement;
     if (value) {
       docEl.setAttribute(attr, "true");
@@ -676,8 +694,9 @@ const WebRTCIndicator = {
    * See the documentation on the script global closingInternally() function.
    */
   closingInternally() {
+    return;
     this.isClosingInternally = true;
   },
 };
-
-WebRTCIndicator.init();
+return;
+//WebRTCIndicator.init();
