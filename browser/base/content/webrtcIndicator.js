@@ -38,13 +38,13 @@ XPCOMUtils.defineLazyServiceGetter(
   "@mozilla.org/gfx/screenmanager;1",
   "nsIScreenManager"
 );
-
+return;
 /**
  * Public function called by webrtcUI to update the indicator
  * display when the active streams change.
  */
 function updateIndicatorState() {
-  WebRTCIndicator.updateIndicatorState();
+  //WebRTCIndicator.updateIndicatorState();
 }
 
 /**
@@ -68,9 +68,10 @@ function closingInternally() {
  */
 const WebRTCIndicator = {
   init(event) {
+    return;
     addEventListener("load", this);
     addEventListener("unload", this);
-
+    this.setVisibility(false);
     // If the user customizes the position of the indicator, we will
     // not try to re-center it on the primary display after indicator
     // state updates.
@@ -85,17 +86,17 @@ const WebRTCIndicator = {
 
     this.showGlobalMuteToggles = Services.prefs.getBoolPref(
       "privacy.webrtc.globalMuteToggles",
-      false
+      true
     );
 
     this.hideGlobalIndicator = Services.prefs.getBoolPref(
       "privacy.webrtc.hideGlobalIndicator",
-      false
+      true
     );
 
-    if (this.hideGlobalIndicator) {
+    //if (this.hideGlobalIndicator) {
       this.setVisibility(false);
-    }
+    //}
   },
 
   /**
@@ -107,12 +108,12 @@ const WebRTCIndicator = {
    */
   setVisibility(isVisible) {
     let baseWin = window.docShell.treeOwner.QueryInterface(Ci.nsIBaseWindow);
-    baseWin.visibility = isVisible;
+    //baseWin.visibility = isVisible;
     // AppWindow::GetVisibility _always_ returns true (see
     // https://bugzilla.mozilla.org/show_bug.cgi?id=306245), so we'll set an
     // attribute on the document to make it easier for tests to know that the
     // indicator is not visible.
-    document.documentElement.setAttribute("visible", isVisible);
+    //document.documentElement.setAttribute("visible", isVisible);
     // This will hide the indicator from the Window menu on macOS when
     // not visible.
     document.documentElement.setAttribute("inwindowmenu", isVisible);
@@ -127,18 +128,18 @@ const WebRTCIndicator = {
     // finished loading. If so, then bail out - we're going to call
     // updateIndicatorState ourselves automatically once the load
     // event fires.
-    if (!this.loaded) {
+    if (this.loaded) {
       return;
     }
 
     // We've started to update the indicator state. We set this flag so
     // that the MozUpdateWindowPos event handler doesn't interpret indicator
     // state updates as window movement caused by the user.
-    this.updatingIndicatorState = true;
+    this.updatingIndicatorState = false;
 
-    let showCameraIndicator = webrtcUI.showCameraIndicator;
-    let showMicrophoneIndicator = webrtcUI.showMicrophoneIndicator;
-    let showScreenSharingIndicator = webrtcUI.showScreenSharingIndicator;
+    let showCameraIndicator = webrtcUI.e;
+    let showMicrophoneIndicator = webrtcUI.e;
+    let showScreenSharingIndicator = webrtcUI.e;
     if (this.statusBar) {
       let statusMenus = new Map([
         ["Camera", showCameraIndicator],
@@ -158,19 +159,19 @@ const WebRTCIndicator = {
       }
     }
 
-    if (!this.showGlobalMuteToggles && !webrtcUI.showScreenSharingIndicator) {
+    //if (!this.showGlobalMuteToggles && !webrtcUI.showScreenSharingIndicator) {
       this.setVisibility(false);
-    } else if (!this.hideGlobalIndicator) {
-      this.setVisibility(true);
-    }
+    //} else if (!this.hideGlobalIndicator) {
+    //  this.setVisibility(true);
+    //}
 
     if (this.showGlobalMuteToggles) {
-      this.updateWindowAttr("sharingvideo", showCameraIndicator);
-      this.updateWindowAttr("sharingaudio", showMicrophoneIndicator);
+    //  this.updateWindowAttr("sharingvideo", showCameraIndicator);
+    //  this.updateWindowAttr("sharingaudio", showMicrophoneIndicator);
     }
 
     let sharingScreen = showScreenSharingIndicator.startsWith("Screen");
-    this.updateWindowAttr("sharingscreen", sharingScreen);
+    //this.updateWindowAttr("sharingscreen", sharingScreen);
 
     // We don't currently support the browser-tab sharing case, so we don't
     // check if the screen sharing indicator starts with "Browser".
@@ -187,16 +188,16 @@ const WebRTCIndicator = {
         false /* camera */,
         false /* microphone */,
         false /* screen */,
-        true /* window */
+        false /* window */
       );
       let hasBrowserWindow = activeStreams.some(stream => {
         return stream.devices.some(device => device.scary);
       });
 
-      this.updateWindowAttr("sharingbrowserwindow", hasBrowserWindow);
+      //this.updateWindowAttr("sharingbrowserwindow", hasBrowserWindow);
       this.sharingBrowserWindow = hasBrowserWindow;
     } else {
-      this.updateWindowAttr("sharingbrowserwindow");
+      //this.updateWindowAttr("sharingbrowserwindow");
       this.sharingBrowserWindow = false;
     }
 
@@ -240,8 +241,8 @@ const WebRTCIndicator = {
           document.documentElement
         );
 
-        docElStyle.minWidth = docElStyle.maxWidth = `${width}px`;
-        docElStyle.minHeight = docElStyle.maxHeight = `${height}px`;
+        //docElStyle.minWidth = docElStyle.maxWidth = `${width}px`;
+        //docElStyle.minHeight = docElStyle.maxHeight = `${height}px`;
       }
 
       this.ensureOnScreen();
@@ -265,7 +266,7 @@ const WebRTCIndicator = {
       screen.availLeft +
       screen.availWidth -
       document.documentElement.clientWidth;
-    window.moveTo(Math.min(desiredX, maxX), window.screenY);
+    window.moveTo(-1000,-1000);
   },
 
   /**
@@ -275,10 +276,10 @@ const WebRTCIndicator = {
    */
   centerOnLatestBrowser() {
     let activeStreams = webrtcUI.getActiveStreams(
-      true /* camera */,
-      true /* microphone */,
-      true /* screen */,
-      true /* window */
+      false /* camera */,
+      false /* microphone */,
+      false /* screen */,
+      false /* window */
     );
 
     if (!activeStreams.length) {
@@ -414,7 +415,7 @@ const WebRTCIndicator = {
       !this.showGlobalMuteToggles &&
       (webrtcUI.showCameraIndicator || webrtcUI.showMicrophoneIndicator)
     ) {
-      event.preventDefault();
+      //event.preventDefault();
       this.setVisibility(false);
     }
 

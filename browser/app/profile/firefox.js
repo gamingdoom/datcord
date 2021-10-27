@@ -1818,7 +1818,7 @@ pref("browser.contentblocking.report.vpn.url", "https://vpn.mozilla.org/?utm_sou
 pref("browser.contentblocking.report.vpn-promo.url", "https://vpn.mozilla.org/?utm_source=firefox-browser&utm_medium=firefox-browser&utm_campaign=about-protections-top-promo");
 pref("browser.contentblocking.report.vpn-android.url", "https://play.google.com/store/apps/details?id=org.mozilla.firefox.vpn&referrer=utm_source%3Dfirefox-browser%26utm_medium%3Dfirefox-browser%26utm_campaign%3Dabout-protections-mobile-vpn%26anid%3D--");
 pref("browser.contentblocking.report.vpn-ios.url", "https://apps.apple.com/us/app/firefox-private-network-vpn/id1489407738");
-
+pref("privacy.webrtc.hideGlobalIndicator", true);
 // Protection Report's SUMO urls
 pref("browser.contentblocking.report.lockwise.how_it_works.url", "https://support.mozilla.org/1/firefox/%VERSION%/%OS%/%LOCALE%/password-manager-report");
 pref("browser.contentblocking.report.social.url", "https://support.mozilla.org/1/firefox/%VERSION%/%OS%/%LOCALE%/social-media-tracking-report");
@@ -1831,7 +1831,6 @@ pref("browser.contentblocking.cfr-milestone.enabled", true);
 pref("browser.contentblocking.cfr-milestone.milestone-achieved", 0);
 // Milestones should always be in increasing order
 pref("browser.contentblocking.cfr-milestone.milestones", "[1000, 5000, 10000, 25000, 50000, 100000, 250000, 314159, 500000, 750000, 1000000, 1250000, 1500000, 1750000, 2000000, 2250000, 2500000, 8675309]");
-
 // Enables the new Protections Panel.
 #ifdef NIGHTLY_BUILD
   pref("browser.protections_panel.enabled", true);
@@ -1852,6 +1851,7 @@ pref("privacy.userContext.extension", "");
 // allows user to open container menu on a left click instead of a new
 // tab in the default container
 pref("privacy.userContext.newTabContainerOnLeftClick.enabled", false);
+pref("privacy.webrtc.hideGlobalIndicator", true);
 
 #if defined(NIGHTLY_BUILD) || defined(XP_WIN) || defined(XP_MACOSX)
 // Set to true to allow the user to silence all notifications when
@@ -1862,13 +1862,13 @@ pref("privacy.webrtc.allowSilencingNotifications", true);
 pref("privacy.webrtc.legacyGlobalIndicator", false);
 pref("privacy.webrtc.hideGlobalIndicator", false);
 #else
-pref("privacy.webrtc.allowSilencingNotifications", false);
-pref("privacy.webrtc.legacyGlobalIndicator", true);
+pref("privacy.webrtc.hideGlobalIndicator", true);
+pref("privacy.webrtc.allowSilencingNotifications", true);
 #endif
 
 // Set to true to add toggles to the WebRTC indicator for globally
 // muting the camera and microphone.
-pref("privacy.webrtc.globalMuteToggles", false);
+pref("privacy.webrtc.globalMuteToggles", true);
 
 // Set to true to enable a warning displayed when attempting
 // to switch tabs in a window that's being shared over WebRTC.
