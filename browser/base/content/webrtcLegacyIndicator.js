@@ -4,11 +4,12 @@
 
 const { Services } = ChromeUtils.import("resource://gre/modules/Services.jsm");
 const { webrtcUI } = ChromeUtils.import("resource:///modules/webrtcUI.jsm");
-
+return;
 const BUNDLE_URL = "chrome://browser/locale/webrtcIndicator.properties";
-var gStringBundle;
-
+//var gStringBundle;
+return;
 function init(event) {
+  return;
   gStringBundle = Services.strings.createBundle(BUNDLE_URL);
 
   let brand = Services.strings.createBundle(
@@ -39,16 +40,16 @@ function init(event) {
   let ev = new CustomEvent("AlertActive", { bubbles: true, cancelable: true });
   document.documentElement.dispatchEvent(ev);
 }
-
+return;
 function updateIndicatorState() {
   // If gStringBundle isn't set, the window hasn't finished loading.
   if (!gStringBundle) {
     return;
   }
 
-  updateWindowAttr("sharingvideo", webrtcUI.showCameraIndicator);
-  updateWindowAttr("sharingaudio", webrtcUI.showMicrophoneIndicator);
-  updateWindowAttr("sharingscreen", webrtcUI.showScreenSharingIndicator);
+  //updateWindowAttr("sharingvideo", webrtcUI.showCameraIndicator);
+  //updateWindowAttr("sharingaudio", webrtcUI.showMicrophoneIndicator);
+  //updateWindowAttr("sharingscreen", webrtcUI.showScreenSharingIndicator);
 
   // Camera and microphone button tooltip.
   let shareTypes = [];
