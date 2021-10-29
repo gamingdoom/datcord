@@ -4,7 +4,9 @@
 # Install
 - # Linux
   - ## Appimage (easiest)
-    - Grab the AppImage from [releases](https://github.com/gamingdoom/datcord/releases/) and run it.
+    - Grab the AppImage from [releases](https://github.com/gamingdoom/datcord/releases/) and run it. If you choose to integrate it, run
+    
+       ``~/Applications/Datcord-* --appimage-portable-home``
   - ## Tarball
     - Grab the tarball from the releases then,
     ```
@@ -28,6 +30,9 @@ cargo install cbindgen
 ```
 ```
 git clone https://github.com/gamingdoom/datcord.git && cd datcord
+git clone https://chromium.googlesource.com/linux-syscall-support
+mkdir -p toolkit/crashreporter/google-breakpad/src/third_party/lss/
+cp linux-syscall-support/linux_syscall_support.h toolkit/crashreporter/google-breakpad/src/third_party/lss/linux_syscall_support.h && cp linux-syscall-support/linux_syscall_support.h third_party/lss/linux_syscall_support.h
 ./mach create-mach-environment
 ./mach build
 ./mach run
