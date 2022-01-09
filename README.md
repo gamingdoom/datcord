@@ -4,7 +4,8 @@
 # Install
 - # Linux
   - ## Arch Linux
-    - If you use Arch or an Arch-based distro, datcord is available on the aur
+    - If you use Arch or an Arch-based distro, datcord is available on the AUR:
+	
 	``aura -A datcord-bin``
   - ## Appimage
     - Grab the AppImage from [releases](https://github.com/gamingdoom/datcord/releases/) and run it. If you choose to integrate it, run
