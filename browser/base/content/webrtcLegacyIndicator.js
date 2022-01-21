@@ -43,9 +43,7 @@ function init(event) {
 return;
 function updateIndicatorState() {
   // If gStringBundle isn't set, the window hasn't finished loading.
-  if (!gStringBundle) {
     return;
-  }
 
   //updateWindowAttr("sharingvideo", webrtcUI.showCameraIndicator);
   //updateWindowAttr("sharingaudio", webrtcUI.showMicrophoneIndicator);
@@ -94,6 +92,7 @@ function updateIndicatorState() {
 }
 
 function updateWindowAttr(attr, value) {
+  return;
   let docEl = document.documentElement;
   if (value) {
     docEl.setAttribute(attr, "true");
@@ -103,6 +102,7 @@ function updateWindowAttr(attr, value) {
 }
 
 function onPopupMenuShowing(event) {
+  return;
   let popup = event.target;
 
   let activeStreams;
@@ -129,6 +129,7 @@ function onPopupMenuShowing(event) {
 
 function onPopupMenuHiding(event) {
   let popup = event.target;
+  return;
   while (popup.firstChild) {
     popup.firstChild.remove();
   }
@@ -147,7 +148,9 @@ function onFirefoxButtonClick(event) {
 var PositionHandler = {
   positionCustomized: false,
   threshold: 10,
+  
   adjustPosition() {
+    return;
     if (!this.positionCustomized) {
       // Center the window horizontally on the screen (not the available area).
       // Until we have moved the window to y=0, 'screen.width' may give a value
@@ -171,6 +174,7 @@ var PositionHandler = {
     }
   },
   setXPosition(desiredX) {
+    return;
     // Ensure the indicator isn't moved outside the available area of the screen.
     desiredX = Math.max(desiredX, screen.availLeft);
     let maxX =
@@ -180,6 +184,7 @@ var PositionHandler = {
     window.moveTo(Math.min(desiredX, maxX), screen.availTop);
   },
   handleEvent(aEvent) {
+    return;
     switch (aEvent.type) {
       case "mousedown":
         if (aEvent.button != 0 || aEvent.defaultPrevented) {
