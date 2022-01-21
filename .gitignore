@@ -38,6 +38,7 @@ ID
 /.clang_complete
 /machrc
 /.machrc
+/.cargo
 # pyenv artifact
 /.python-version
 
@@ -169,11 +170,8 @@ testing/raptor/raptor-venv
 testing/raptor/raptor/tests/json/
 testing/raptor/webext/raptor/auto_gen_test_config.js
 
-# Ignore built shit
-
-obj-*
+# Ignore appimages
 
 datcord.AppImage/usr/bin/*
 Datcord-x86_64.AppImage
-ipc/chromium/src/third_party/libevent/evconfig-private.h
 

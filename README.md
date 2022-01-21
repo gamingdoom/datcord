@@ -3,15 +3,21 @@
 
 # Install
 - # Linux
-  - ## Appimage (easiest)
-    - Grab the AppImage from [releases](https://github.com/gamingdoom/datcord/releases/) and run it.
+  - ## Arch Linux
+    - If you use Arch or an Arch-based distro, datcord is available on the AUR:
+	
+      ``aura -A datcord-bin``
+  - ## Appimage
+    - Grab the AppImage from [releases](https://github.com/gamingdoom/datcord/releases/) and run it. If you choose to integrate it, run
+    
+       ``~/Applications/Datcord-* --appimage-portable-home``
   - ## Tarball
     - Grab the tarball from the releases then,
-    ```
-    tar -xvf datcordLinux.tar
-    cd datcord
-    ./datcord
-    ```
+	    ```
+	    tar -xvf datcordLinux.tar
+	    cd datcord
+	    ./datcord
+	    ```
  - # Windows
    - Coming soon
  - # Mac
@@ -28,6 +34,9 @@ cargo install cbindgen
 ```
 ```
 git clone https://github.com/gamingdoom/datcord.git && cd datcord
+git clone https://chromium.googlesource.com/linux-syscall-support
+mkdir -p toolkit/crashreporter/google-breakpad/src/third_party/lss/
+cp linux-syscall-support/linux_syscall_support.h toolkit/crashreporter/google-breakpad/src/third_party/lss/linux_syscall_support.h && cp linux-syscall-support/linux_syscall_support.h third_party/lss/linux_syscall_support.h
 ./mach create-mach-environment
 ./mach build
 ./mach run
