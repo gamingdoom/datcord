@@ -2,11 +2,11 @@
 
 mkdir build
 if [ -z "$(ls build)" ]; then
-  git clone --recurse-submodules https://github.com/mozilla/gecko-dev.git build
+  git clone --recurse-submodules -b release https://github.com/mozilla/gecko-dev.git build
   build/mach create-mach-environment
 else 
   rm -rf build
-  git clone --recurse-submodules https://github.com/mozilla/gecko-dev.git build
+  git clone --recurse-submodules -b release https://github.com/mozilla/gecko-dev.git build
   build/mach create-mach-environment
 fi
 cd build
