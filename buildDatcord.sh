@@ -10,8 +10,6 @@ else
   build/mach create-mach-environment
 fi
 cd build
-mkdir .mozbuild
-export MOZBUILD_STATE_PATH=".mozbuild"
 cp -r ../changed/* .
 patch . ../mozilla_dirsFromLibreWolf.patch
 ./mach build
