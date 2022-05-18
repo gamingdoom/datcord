@@ -13,6 +13,6 @@ cp -r ../changed/* .
 patch . ../mozilla_dirsFromLibreWolf.patch
 ./mach configure
 mozbuild=~/.mozbuild
-export PATH="$mozbuild/git-cinnabar:$PATH"
+export PATH="$PATH:$mozbuild/git-cinnabar"
 ./mach build
 ./mach package
