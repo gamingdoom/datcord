@@ -9,6 +9,7 @@ fi
 cd mozilla-unified
 mozbuild=~/.mozbuild
 export PATH="$PATH:$mozbuild/git-cinnabar"
+echo $PATH
 cp -r ../changed/* .
 patch -p1 ../mozilla_dirsFromLibreWolf.patch
 ./mach configure
