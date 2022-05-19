@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 rm datcord-linux-x86_64.tar.bz2
 wget https://github.com/gamingdoom/datcord/releases/latest/download/datcord-linux-x86_64.tar.bz2

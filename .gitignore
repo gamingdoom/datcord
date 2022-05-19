@@ -171,7 +171,9 @@ testing/raptor/raptor/tests/json/
 testing/raptor/webext/raptor/auto_gen_test_config.js
 
 # Ignore appimages
-
 datcord.AppImage/usr/bin/*
 Datcord-x86_64.AppImage
+
+# Ignore build dir
+build/
 
