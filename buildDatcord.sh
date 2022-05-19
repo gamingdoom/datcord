@@ -4,7 +4,7 @@ mkdir mozilla-unified
 if [ -z "$(ls mozilla-unified)" ]; then
   rm mozilla-unified
   curl https://hg.mozilla.org/mozilla-central/raw-file/default/python/mozboot/bin/bootstrap.py -O
-  python3 bootstrap.py --vcs=git
+  python3 bootstrap.py --vcs=git --no-interactive
 fi
 cd mozilla-unified
 mozbuild=~/.mozbuild
