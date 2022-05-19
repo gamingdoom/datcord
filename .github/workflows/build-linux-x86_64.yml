@@ -40,13 +40,10 @@ jobs:
           
       - name: Appimage it
         run: |
-            wget "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
-            chmod a+x appimagetool-x86_64.AppImage
-            mkdir -p datcord.AppImage/usr/bin/
-            tar --strip-components=1 -xvf  obj-x86_64-pc-linux-gnu/dist/*.tar.bz2 -C datcord.AppImage/usr/bin/
-            mv datcord.AppImage/usr/bin/firefox datcord.AppImage/usr/bin/datcord 
-            mv datcord.AppImage/usr/bin/firefox-bin datcord.AppImage/usr/bin/datcord-bin 
-            ARCH=x86_64 ./appimagetool-x86_64.AppImage datcord.AppImage/
+          wget "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
+          chmod a+x appimagetool-x86_64.AppImage
+          mkdir -p datcord.AppImage/usr/bin/
+          ./mkappimagex86_64
           
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.4
@@ -54,13 +51,13 @@ jobs:
           # Artifact name
           name: tarball-linux-x86_64
           # A file, directory or wildcard pattern that describes what to upload
-          path: obj-x86_64-pc-linux-gnu/dist/*.tar.bz2
+          path: mozilla-unified/obj-x86_64-pc-linux-gnu/dist/*.tar.bz2
           
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.4
         with:
           # Artifact name
-          name: appimage
+          name: Appimage
           # A file, directory or wildcard pattern that describes what to upload
           path: |
             Datcord-x86_64.AppImage
