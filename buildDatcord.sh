@@ -1,5 +1,8 @@
 #!/bin/bash
 
+mozbuild=~/.mozbuild
+export PATH="$PATH:$mozbuild/git-cinnabar"
+echo $PATH
 mkdir mozilla-unified
 if [ -z "$(ls mozilla-unified)" ]; then
   rm mozilla-unified
@@ -7,9 +10,6 @@ if [ -z "$(ls mozilla-unified)" ]; then
   python3 bootstrap.py --vcs=git --no-interactive
 fi
 cd mozilla-unified
-mozbuild=~/.mozbuild
-export PATH="$PATH:$mozbuild/git-cinnabar"
-echo $PATH
 cp -r ../changed/* .
 patch -p1 ../mozilla_dirsFromLibreWolf.patch
 ./mach configure
