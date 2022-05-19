@@ -44,6 +44,7 @@ jobs:
           pip3 install wheel setuptools zstandard==0.15.2 cffi>=1.13.0 glean-parser==2.5.0 appdirs>=1.4 Click>=7 diskcache>=4 importlib-metadata iso8601>=0.1.10 Jinja2>=2.10.1 jsonschema>=3.0.2 attrs>=17.4.0 MarkupSafe>=2.0 pycparser pyrsistent>=0.14.0 PyYAML>=3.13 six>=1.11.0 typing-extensions>=3.6.4  yamllint>=1.18.0  pathspec>=0.5.3 zipp>=0.5 psutil==5.8.0 
           mkdir ~/.mozbuild
           git clone https://github.com/glandium/git-cinnabar.git ~/.mozbuild/git-cinnabar
+          ~/.mozbuild/git-cinnabar/git-cinnabar install
           ./buildDatcord.sh
           
       - name: Appimage it
