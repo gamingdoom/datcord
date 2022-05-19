@@ -11,7 +11,7 @@
     - Grab the AppImage from [releases](https://github.com/gamingdoom/datcord/releases/) and run it. If you choose to integrate it, run
     
        ``~/Applications/Datcord-* --appimage-portable-home``
-  - # Installer Script
+  - ## Installer Script
     ``curl https://raw.githubusercontent.com/gamingdoom/datcord/master/installDatcord.sh | bash``
   - ## Tarball
     - Grab the tarball from the releases then,
