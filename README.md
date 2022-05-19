@@ -27,6 +27,6 @@
 
 # Building from source
 ```
-git clone https://github.com/gamingdoom/datcord.git && cd dat
+git clone https://github.com/gamingdoom/datcord.git && cd datcord
 ./buildDatcord.sh
 ```
