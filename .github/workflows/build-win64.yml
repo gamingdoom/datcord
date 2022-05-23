@@ -29,7 +29,7 @@ jobs:
           choco install mozillabuild cygwin
           choco install --force git
           refreshenv
-          C:\mozilla-build\start-shell.bat ./buildDatcord.bat
+          C:\mozilla-build\start-shell.bat /d/a/datcord/datcord/buildDatcord.bat
           cd mozilla-unified
           dir
           cd dist
