@@ -28,6 +28,7 @@ jobs:
         run: |
           choco install mozillabuild
           choco install cygwin
+          choco install git
           refreshenv
           .\buildDatcord.bat
           cd mozilla-unified
