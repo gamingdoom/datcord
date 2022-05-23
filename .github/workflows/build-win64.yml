@@ -28,9 +28,6 @@ jobs:
         run: |
           choco install mozillabuild
           choco install cygwin
-          dir c:\
-          dir c:\cygwin
-          dir c:\cygwin\bin
           .\buildDatcord.bat
           cd mozilla-unified
           dir
