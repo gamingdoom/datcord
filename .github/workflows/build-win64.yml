@@ -24,15 +24,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
-      - name: Cache
-        uses: actions/cache@v2.1.6
-        with:
-        # A list of files, directories, and wildcard patterns to cache and restore
-          path: obj-x86_64-w64-mingw32/*
-        # An explicit key for restoring and saving the cache
-          key: windows
-
 
       # Runs a set of commands using the runners shell
       - name: Get deps, build and package
