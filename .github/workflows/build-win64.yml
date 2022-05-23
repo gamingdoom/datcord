@@ -27,6 +27,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           choco install mozillabuild
+          choco install cygwin
           dir c:\
           dir c:\cygwin
           dir c:\cygwin\bin
