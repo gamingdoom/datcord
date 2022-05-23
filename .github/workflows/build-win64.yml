@@ -27,6 +27,9 @@ jobs:
       - name: Run a multi-line script
         run: |
           choco install mozillabuild
+          dir c:\
+          dir c:\cygwin
+          dir c:\cygwin\bin
           .\buildDatcord.bat
           cd mozilla-unified
           dir
