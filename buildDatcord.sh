@@ -14,5 +14,8 @@ cd mozilla-unified
 cp -r ../changed/* .
 patch -p1 ../mozilla_dirsFromLibreWolf.patch
 ./mach configure
+if [ $1 == "--windows" ]; then
+  echo "ac_add_options --target=win64" >> mozconfig
+fi
 ./mach build
 ./mach package
