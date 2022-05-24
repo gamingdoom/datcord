@@ -29,19 +29,25 @@ jobs:
           choco install mozillabuild cygwin
           choco install --force git
           refreshenv
-          C:\mozilla-build\start-shell.bat cd "/d/a/datcord/datcord/" && /d/a/datcord/datcord/buildDatcordWin.sh
-          cd mozilla-unified
+          C:\mozilla-build\start-shell.bat /d/a/datcord/datcord/buildDatcord.bat
+          cd C:/Users/runneradmin/mozilla-unified
           dir
-          cd dist
+          cd cd obj-x86_64-pc-mingw32
+          dir
+          cd browser
+          dir
+          cd installer
+          dir 
+          cd windows
           dir
           
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.4
         with:
           # Artifact name
-          name: win64
+          name: win64-installer
           # A file, directory or wildcard pattern that describes what to upload
-          path: obj*/dist/*.exe
+          path: C:/Users/runneradmin/mozilla-unified/obj-x86_64-pc-mingw32/browser/installer/windows/*.exe
           
       - name: Cache
         uses: actions/cache@v2.1.6
