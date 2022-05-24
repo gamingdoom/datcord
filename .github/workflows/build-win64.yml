@@ -1,6 +1,4 @@
-# This is a basic workflow to help you get started with Actions
-
-name: Build-Windows-64
+name: Build-Windows
 
 # Controls when the workflow will run
 on:
@@ -18,7 +16,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-18.04
+    runs-on: windows-2019
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -26,25 +24,35 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs a set of commands using the runners shell
-      - name: Get deps, build and package
+      - name: Run a multi-line script
         run: |
-          sudo apt upgrade && sudo apt update
-          sudo apt-get install python3 python3-distutils python3-pip build-essential libpython3-dev m4 nodejs unzip uuid zip libasound2-dev libcurl4-openssl-dev libdbus-1-dev libdbus-glib-1-dev libdrm-dev libgtk-3-dev libpulse-dev libx11-xcb-dev libxt-dev xvfb nasm-mozilla rustc clang nasm
-          pip3 install --upgrade setuptools
-          pip3 install wheel setuptools zstandard==0.15.2 cffi>=1.13.0 glean-parser==2.5.0 appdirs>=1.4 Click>=7 diskcache>=4 importlib-metadata iso8601>=0.1.10 Jinja2>=2.10.1 jsonschema>=3.0.2 attrs>=17.4.0 MarkupSafe>=2.0 pycparser pyrsistent>=0.14.0 PyYAML>=3.13 six>=1.11.0 typing-extensions>=3.6.4  yamllint>=1.18.0  pathspec>=0.5.3 zipp>=0.5 psutil==5.8.0 
-          mkdir ~/.mozbuild
-          git clone https://github.com/glandium/git-cinnabar.git ~/.mozbuild/git-cinnabar
-          ~/.mozbuild/git-cinnabar/git-cinnabar download
-          ./buildDatcord.sh --windows
-          ls obj*/
-          ls obj*/dist/
+          choco install mozillabuild cygwin
+          choco install --force git
+          refreshenv
+          C:\mozilla-build\start-shell.bat /d/a/datcord/datcord/buildDatcord.bat
+          cd C:/Users/runneradmin/mozilla-unified
+          dir
+          cd obj-x86_64-pc-mingw32
+          dir
+          cd browser
+          dir
+          cd installer
+          dir 
+          cd windows
+          dir
           
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.4
         with:
           # Artifact name
-          name: win64
+          name: win64-installer
           # A file, directory or wildcard pattern that describes what to upload
-          path: obj*/dist/*.exe
+          path: C:/Users/runneradmin/mozilla-unified/obj-x86_64-pc-mingw32/browser/installer/windows/instgen/setup.exe
           
-      
+      - name: Cache
+        uses: actions/cache@v2.1.6
+        with:
+        # A list of files, directories, and wildcard patterns to cache and restore
+          path: obj-x86_64-pc-linux-gnu/*
+        # An explicit key for restoring and saving the cache
+          key: ${{ runner.os }}

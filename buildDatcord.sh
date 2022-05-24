@@ -14,9 +14,5 @@ cd mozilla-unified
 cp -r ../changed/* .
 patch -p1 ../mozilla_dirsFromLibreWolf.patch
 ./mach configure
-if [ $1 == "--windows" ]; then
-  echo "ac_add_options --target=win64" >> mozconfig
-  echo "ac_add_options --enable-bootstrap" >> mozconfig
-fi
 ./mach build
 ./mach package
