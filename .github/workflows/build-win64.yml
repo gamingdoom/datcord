@@ -32,7 +32,7 @@ jobs:
           C:\mozilla-build\start-shell.bat /d/a/datcord/datcord/buildDatcord.bat
           cd C:/Users/runneradmin/mozilla-unified
           dir
-          cd cd obj-x86_64-pc-mingw32
+          cd obj-x86_64-pc-mingw32
           dir
           cd browser
           dir
