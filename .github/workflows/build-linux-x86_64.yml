@@ -38,6 +38,14 @@ jobs:
           ~/.mozbuild/git-cinnabar/git-cinnabar download
           ./buildDatcord.sh
           
+      - name: Edit Tarball
+        run: |
+            mkdir datcord
+            tar --strip-components=1 -xvf  mozilla-unified/obj-x86_64-pc-linux-gnu/dist/*.tar.bz2 -C datcord/
+            mv datcord/firefox datcord/datcord
+            mv datcord/firefox-bin datcord/datcord-bin
+            tar -cjf datcord.tar.bz2 datcord 
+          
       - name: Appimage it
         run: |
             wget "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
@@ -54,7 +62,7 @@ jobs:
           # Artifact name
           name: tarball-linux-x86_64
           # A file, directory or wildcard pattern that describes what to upload
-          path: mozilla-unified/obj-x86_64-pc-linux-gnu/dist/*.tar.bz2
+          path: datcord.tar.bz2
           
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.4
