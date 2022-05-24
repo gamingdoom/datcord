@@ -47,7 +47,7 @@ jobs:
           # Artifact name
           name: win64-installer
           # A file, directory or wildcard pattern that describes what to upload
-          path: C:/Users/runneradmin/mozilla-unified/obj-x86_64-pc-mingw32/dist/installer/sea/*.exe
+          path: C:/Users/runneradmin/mozilla-unified/obj-x86_64-pc-mingw32/dist/install/sea/*.exe
           
       - name: Cache
         uses: actions/cache@v2.1.6
