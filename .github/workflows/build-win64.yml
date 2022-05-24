@@ -47,7 +47,16 @@ jobs:
           # Artifact name
           name: win64-installer
           # A file, directory or wildcard pattern that describes what to upload
-          path: C:/Users/runneradmin/mozilla-unified/obj-x86_64-pc-mingw32/browser/installer/windows/instgen/setup.exe
+          path: C:/Users/runneradmin/mozilla-unified/obj-x86_64-pc-mingw32/browser/installer/windows/instgen
+          
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          # Artifact name
+          name: win64-dist
+          # A file, directory or wildcard pattern that describes what to upload
+          path: C:/Users/runneradmin/mozilla-unified/obj-x86_64-pc-mingw32/dist
+          
           
       - name: Cache
         uses: actions/cache@v2.1.6
