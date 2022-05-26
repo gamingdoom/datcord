@@ -30,7 +30,7 @@ jobs:
           choco install --force git
           refreshenv
           C:\mozilla-build\start-shell.bat /d/a/datcord/datcord/buildDatcordWin.sh
-          move C:/Users/runneradmin/mozilla-unified/obj-x86_64-pc-mingw32/dist/install/sea/*.exe C:/Users/runneradmin/mozilla-unified/obj-x86_64-pc-mingw32/dist/install/sea/datcordSetup-win64.exe /Y
+          move C:/Users/runneradmin/mozilla-unified/obj-x86_64-pc-mingw32/dist/install/sea/*.exe C:/Users/runneradmin/mozilla-unified/obj-x86_64-pc-mingw32/dist/install/sea/datcordSetup-win64.exe
           
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.4
