@@ -11,9 +11,8 @@
 !define BrandFullNameInternal "Mozilla Firefox"
 !define BrandFullName         "Datcord"
 !define CompanyName           "Datcord"
-!define URLInfoAbout          "https://www.mozilla.org"
-!define URLUpdateInfo         "https://www.mozilla.org/firefox/${AppVersion}/releasenotes"
-!define HelpLink              "https://support.mozilla.org"
+!define URLInfoAbout          "https://github.com/gamingdoom/datcord"
+!define HelpLink              "https://github.com/gamingdoom/datcord/issues"
 
 ; The OFFICIAL define is a workaround to support different urls for Release and
 ; Beta since they share the same branding when building with other branches that
