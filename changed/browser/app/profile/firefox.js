@@ -1992,8 +1992,8 @@ pref("privacy.webrtc.allowSilencingNotifications", true);
 pref("privacy.webrtc.legacyGlobalIndicator", false);
 pref("privacy.webrtc.hideGlobalIndicator", true);
 #else
-pref("privacy.webrtc.allowSilencingNotifications", false);
-pref("privacy.webrtc.legacyGlobalIndicator", false);
+pref("privacy.webrtc.allowSilencingNotifications", true);
+pref("privacy.webrtc.legacyGlobalIndicator", true);
 #endif
 
 // Set to true to add toggles to the WebRTC indicator for globally
