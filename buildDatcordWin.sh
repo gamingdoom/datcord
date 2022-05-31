@@ -19,9 +19,10 @@ patch -p1 $basedir/mozilla_dirsFromLibreWolf.patch
 mkdir $basedir/work
 cp obj-x86_64-pc-mingw32/dist/install/sea/*.exe $basedir/work/ffSetup-win64.exe
 cd $basedir/work
-unzip -q ffSetup-win64.exe
+7z -x ffSetup-win64.exe
 ls
 mv core datcord
+rm setup.exe
 cd datcord
 mv firefox.exe datcord.exe
 cd ..
@@ -33,7 +34,7 @@ wget -q -O ./vc_redist.x64.exe https://aka.ms/vs/17/release/vc_redist.x64.exe
 cp ../windows/setup.nsi .
 cp ../windows/datcord.ico .
 cp ../windows/banner.bmp .
-makensis-3.01.exe -V1 setup.nsi
+makensis.exe -V1 setup.nsi
 # Setup filename will be datcordSetup-win64.exe
 
 
