@@ -19,7 +19,7 @@ patch -p1 $basedir/mozilla_dirsFromLibreWolf.patch
 mkdir $basedir/work
 cp obj-x86_64-pc-mingw32/dist/install/sea/*.exe $basedir/work/ffSetup-win64.exe
 cd $basedir/work
-7z -x ffSetup-win64.exe
+7z x ffSetup-win64.exe
 ls
 mv core datcord
 rm setup.exe
