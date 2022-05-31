@@ -108,38 +108,6 @@ continue:
 	# Set the INSTALLSIZE constant (!defined at the top of this script) so Add/Remove Programs can accurately report the size
 	WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${COMPANYNAME} ${APPNAME}" "EstimatedSize" ${ESTIMATED_SIZE}
 
-
-	#
-	# Registry information to let Windows pick us up in the list of available browsers
-	#
-	
-	WriteRegStr HKLM "Software\Clients\StartMenuInternet\Datcord" "" "Datcord"	
-
-	WriteRegStr HKLM "Software\Clients\StartMenuInternet\Datcord\Capabilities" "ApplicationDescription" "Datcord"
-	WriteRegStr HKLM "Software\Clients\StartMenuInternet\Datcord\Capabilities" "ApplicationIcon" "$INSTDIR\datcord.exe,0"
-	WriteRegStr HKLM "Software\Clients\StartMenuInternet\Datcord\Capabilities" "ApplicationName" "Datcord"
-	WriteRegStr HKLM "Software\Clients\StartMenuInternet\Datcord\Capabilities\FileAssociations" ".htm" "DatcordHTM"
-	WriteRegStr HKLM "Software\Clients\StartMenuInternet\Datcord\Capabilities\FileAssociations" ".html" "DatcordHTM"
-	WriteRegStr HKLM "Software\Clients\StartMenuInternet\Datcord\Capabilities\FileAssociations" ".pdf" "DatcordHTM"
-	WriteRegStr HKLM "Software\Clients\StartMenuInternet\Datcord\Capabilities\Startmenu" "StartMenuInternet" "Datcord"
-	WriteRegStr HKLM "Software\Clients\StartMenuInternet\Datcord\Capabilities\URLAssociations" "http" "DatcordHTM"
-	WriteRegStr HKLM "Software\Clients\StartMenuInternet\Datcord\Capabilities\URLAssociations" "https" "DatcordHTM"
-
-	WriteRegStr HKLM "Software\Clients\StartMenuInternet\Datcord\DefaultIcon" "" "$INSTDIR\datcord.exe,0"
-	WriteRegStr HKLM "Software\Clients\StartMenuInternet\Datcord\shell\open\command" "" "$INSTDIR\datcord.exe"
-	
-	WriteRegStr HKLM "Software\RegisteredApplications" "Datcord" "Software\Clients\StartMenuInternet\Datcord\Capabilities"
-	
-	WriteRegStr HKLM "Software\Classes\DatcordHTM" "" "Datcord Handler"
-	WriteRegStr HKLM "Software\Classes\DatcordHTM" "AppUserModelId" "Datcord"
-	WriteRegStr HKLM "Software\Classes\DatcordHTM\Application" "AppUserModelId" "Datcord"
-	WriteRegStr HKLM "Software\Classes\DatcordHTM\Application" "ApplicationIcon" "$INSTDIR\datcord.exe,0"
-	WriteRegStr HKLM "Software\Classes\DatcordHTM\Application" "ApplicationName" "Datcord"
-	WriteRegStr HKLM "Software\Classes\DatcordHTM\Application" "ApplicationDescription" "Start the Datcord Browser"
-	WriteRegStr HKLM "Software\Classes\DatcordHTM\Application" "ApplicationCompany" "Datcord"
-	WriteRegStr HKLM "Software\Classes\DatcordHTM\DefaultIcon" "" "$INSTDIR\datcord.exe,0"
-	WriteRegStr HKLM "Software\Classes\DatcordHTM\shell\open\command" "" "$\"$INSTDIR\datcord.exe$\" -osint -url $\"%1$\""
-
 SectionEnd
 
 
@@ -166,13 +134,5 @@ section "Uninstall"
 
 	# Remove uninstaller information from the registry
 	DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${COMPANYNAME} ${APPNAME}"
-	
-	#
-	# Windows default browser integration
-	#
-	
-	DeleteRegKey HKLM "Software\Clients\StartMenuInternet\Datcord"
-	DeleteRegKey HKLM "Software\RegisteredApplications"
-	DeleteRegKey HKLM "Software\Classes\DatcordHTM"
 
 sectionEnd
