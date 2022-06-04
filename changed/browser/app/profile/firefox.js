@@ -271,7 +271,7 @@ pref("browser.shell.defaultBrowserCheckCount", 0);
 #if defined(XP_WIN)
 // Attempt to set the default browser on Windows 10 using the UserChoice registry keys,
 // before falling back to launching the modern Settings dialog.
-pref("browser.shell.setDefaultBrowserUserChoice", true);
+pref("browser.shell.setDefaultBrowserUserChoice", false);
 // When setting the default browser on Windows 10 using the UserChoice
 // registry keys, also try to set Firefox as the default PDF handler.
 pref("browser.shell.setDefaultPDFHandler", false);
@@ -312,7 +312,7 @@ pref("browser.startup.couldRestoreSession.count", 0);
 // Show a skeleton UI window prior to loading libxul. Only visible for windows
 // users as it is not implemented anywhere else.
 #if defined(XP_WIN)
-pref("browser.startup.preXulSkeletonUI", true);
+pref("browser.startup.preXulSkeletonUI", false);
 #endif
 
 // Show an upgrade dialog on major upgrades.
