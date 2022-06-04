@@ -8,7 +8,7 @@
 !define APPNAME "Datcord"
 !define PROGNAME "datcord"
 !define EXECUTABLE "${PROGNAME}.exe"
-!define PROG_VERSION "pkg_version"
+!define PROG_VERSION "0.3.2"
 !define COMPANYNAME "Datcord"
 !define ESTIMATED_SIZE 190000
 !define MUI_ICON "datcord.ico"
@@ -67,12 +67,6 @@ continue:
 			Sleep 2000
 			nsProcess::_FindProcess "${EXECUTABLE}"
 			Pop $R0
-			${If} $R0 = 0
-				DetailPrint "Failed to kill ${APPNAME}, aborting"
-				MessageBox MB_ICONSTOP "Datcord is still running and can't be closed by the installer. Please close it manually and try again."
-				SetErrorlevel 2
-				Abort
-			${EndIf}
 		${EndIf}
 	${EndIf}
 
