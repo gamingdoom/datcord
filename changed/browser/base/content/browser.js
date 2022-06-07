@@ -4,8 +4,8 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
  // Datcord stuff
- import { platform } from 'process';
- const { exec } = require('child_process').exec;
+const os = require('os');
+const { exec } = require('child_process').exec;
 
  // Firefox stuff
  var { XPCOMUtils } = ChromeUtils.import(
@@ -6217,10 +6217,10 @@
       var isExternal = !!(aFlags & Ci.nsIBrowserDOMWindow.OPEN_EXTERNAL);
     
       // We want to open the link in the default browser
-      if (platform == "linux"){
+      if (os.platform == "linux"){
         exec("xdg-open", "\"" + aURI + "\"");
       }
-      else if(platform == "win32"){
+      else if(os.platform == "win32"){
         exec("start", aURI)
       }
       
