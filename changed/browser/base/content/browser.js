@@ -4,12 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
  // Datcord stuff
-<<<<<<< HEAD
  import { os } from '../../modules/os.jsm';
-=======
-const os = require('os');
-const { exec } = require('child_process').exec;
->>>>>>> 3884bf301a9521010a721d826cd9e9bc3ea98635
 
  // Firefox stuff
  var { XPCOMUtils } = ChromeUtils.import(
