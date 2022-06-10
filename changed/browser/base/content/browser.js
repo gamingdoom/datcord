@@ -4,7 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
  // Datcord stuff
- import { os } from '../../modules/os.jsm';
+ var { os } = ChromeUtils.import("resource://gre/modules/os.jsm");
 
  // Firefox stuff
  var { XPCOMUtils } = ChromeUtils.import(
