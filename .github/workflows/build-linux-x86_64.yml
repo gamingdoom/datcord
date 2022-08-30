@@ -37,7 +37,8 @@ jobs:
           git clone https://github.com/glandium/git-cinnabar.git ~/.mozbuild/git-cinnabar
           datcorddir=$PWD
           cd ~/.mozbuild/git-cinnabar/
-          python3 ./download.py
+          make
+          ls
           cd $datcorddir
           ./buildDatcord.sh
           
