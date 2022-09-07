@@ -48,9 +48,8 @@ jobs:
             tar --strip-components=1 -xvf  mozilla-unified/obj-x86_64-pc-linux-gnu/dist/*.tar.bz2 -C datcord/
             mv datcord/firefox datcord/datcord
             mv datcord/firefox-bin datcord/datcord-bin
-	    mv -r distribution datcord/distribution
+            mv distribution datcord/distribution
             tar -cjf datcord.tar.bz2 datcord 
-          
       - name: Appimage it
         run: |
             wget "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
