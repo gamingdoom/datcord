@@ -200,7 +200,7 @@
    * padding that comes from those -moz-window-titlebar rules.
    */
   :root:not([inDOMFullscreen]) #titlebar:-moz-lwtheme {
-    visibility: hidden;
+    visibility: visible;
   }
   :root:not([inDOMFullscreen], [chromehidden~="menubar"]) #toolbar-menubar:-moz-lwtheme,
   :root:not([inDOMFullscreen], [chromehidden~="toolbar"]) #TabsToolbar:-moz-lwtheme {
