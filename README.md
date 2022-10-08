@@ -22,8 +22,14 @@
 	    ```
  - # Windows
    - A windows build is available from GitHub Actions but is not finished yet.
- - # Mac
-   - I don't have a mac so probably not coming (unless someone builds and tests it and then pull requests)
+   
+  ## Open With Setup
+  #### [Open With](https://github.com/darktrojan/openwith) allows you to open links from Datcord in other browsers. To set it up, follow these instructions:
+  - Run ``datcord "about:addons"`` on the command line.
+  - Click the "meatball menu" (3 horizontal dots) next to the on/off switch for Open With and select preferences.
+  - Follow all setup instructions for Open With.
+  - Press ctrl+w to close tabs until Datcord closes.
+  #### Open With should now be setup and you can use it by right clicking on links.
 
 # Building from source
 ```
