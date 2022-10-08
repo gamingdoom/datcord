@@ -21,7 +21,7 @@
 	    ./datcord
 	    ```
  - # Windows
-   - Coming soon
+   - A windows build is available from GitHub Actions but is not finished yet.
  - # Mac
    - I don't have a mac so probably not coming (unless someone builds and tests it and then pull requests)
 
