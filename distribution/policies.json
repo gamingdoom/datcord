@@ -1,5 +1,6 @@
 {
   "policies": {
+    "DisplayMenuBar" : true,
     "Extensions": {
       "Install": ["https://addons.mozilla.org/firefox/downloads/file/3831723/open_with-7.2.6.xpi"]
     }
