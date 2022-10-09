@@ -1,10 +1,30 @@
-# What is Datcord?
-  Datcord is an open-source discord client that respects your privacy. It is a very specialized fork of firefox. Datcord also handles emoji rendering better than     the normal discord client.
+<br />
+<div align="center">
+  <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="changed/browser/branding/unofficial/default256.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">Datcord</h3>
+
+  <p align="center">
+    An open-source Discord client
+    <br/>
+    <br/>
+    <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/gamingdoom/datcord"> 
+    <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/gamingdoom/datcord/total"> 
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/gamingdoom/datcord/Build-Linux-x86_64?label=Linux%20Build"> 
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/gamingdoom/datcord/Build-Win64?label=Windows%20Build"> 
+    <img alt="GitHub" src="https://img.shields.io/github/license/gamingdoom/datcord"> 
+  </p>
+</div>
+
+# About Datcord
+  Datcord is an open-source Discord client that respects your privacy. Datcord is a specialized version of Firefox (the official client is Chromium-based). Datcord handles emoji rendering better than the normal Discord client. Note that Discord can still track you even if you use Datcord. I chose Firefox for Datcord because Chromium-based browsers have a monopoly and if Firefox were to die out, only Chromium would be left.
 
 # Install
 - # Linux
   - ## Arch Linux
-    - If you use Arch or an Arch-based distro, datcord is available on the AUR:
+    - If you use Arch or an Arch-based distro, Datcord is available on the AUR:
 	
       ``aura -A datcord-bin``
   - ## Appimage
