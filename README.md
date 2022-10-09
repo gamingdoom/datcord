@@ -25,6 +25,7 @@
    
   ## Open With Setup
   #### [Open With](https://github.com/darktrojan/openwith) allows you to open links from Datcord in other browsers. To set it up, follow these instructions:
+  - Make sure that you have the latest version of Datcord.
   - Open about:addons page in Datcord
   
 	- If you are using Datcord from tarball or AUR, run ``datcord "about:addons"`` on the command line.
