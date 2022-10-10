@@ -44,6 +44,6 @@ jobs:
         uses: actions/cache@v2.1.6
         with:
         # A list of files, directories, and wildcard patterns to cache and restore
-          path: obj-x86_64-pc-linux-gnu/*
+          path: mozilla-unified
         # An explicit key for restoring and saving the cache
           key: ${{ runner.os }}
