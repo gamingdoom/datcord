@@ -866,6 +866,8 @@ pref("privacy.cpd.openWindows",             false);
 
 pref("privacy.history.custom",              false);
 
+pref("privacy.resistFingerprinting",        true);
+
 // What default should we use for the time span in the sanitizer:
 // 0 - Clear everything
 // 1 - Last Hour
