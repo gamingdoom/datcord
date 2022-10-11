@@ -31,6 +31,7 @@ cd datcord
 mv firefox.exe datcord.exe
 cd ..
 cp ../windows/datcord.ico datcord/
+cp -r ../distribution .
 # Based on librewolf mk.py
 mkdir x86-ansi
 wget -q -O ./x86-ansi/nsProcess.dll https://shorsh.de/upload/we7v/nsProcess.dll
@@ -38,6 +39,5 @@ wget -q -O ./vc_redist.x64.exe https://aka.ms/vs/17/release/vc_redist.x64.exe
 cp ../windows/setup.nsi .
 cp ../windows/datcord.ico .
 cp ../windows/banner.bmp .
-cp -r ../distribution distribution
 makensis.exe -V1 setup.nsi
 # Setup filename will be datcordSetup-win64.exe
