@@ -1,6 +1,6 @@
 # Run with MozillaBuild
 basedir=$(dirname "$0")
-if [[! -d mozilla-unified]]; then
+if [[ ! -d mozilla-unified]]; then
   curl https://hg.mozilla.org/mozilla-central/raw-file/default/python/mozboot/bin/bootstrap.py --output bootstrap.py
   python3 bootstrap.py --no-interactive
 fi
