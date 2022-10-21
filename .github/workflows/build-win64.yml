@@ -23,7 +23,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
-        - name: Cache
+      - name: Cache
         uses: actions/cache@v2.1.6
         with:
         # A list of files, directories, and wildcard patterns to cache and restore
