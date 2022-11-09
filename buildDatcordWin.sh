@@ -1,7 +1,10 @@
 # Run with MozillaBuild
 basedir=$(dirname "$0")
-curl https://hg.mozilla.org/mozilla-central/raw-file/default/python/mozboot/bin/bootstrap.py --output bootstrap.py
-python3 bootstrap.py --no-interactive
+if [[ ! -d mozilla-unified ]] 
+then
+  curl https://hg.mozilla.org/mozilla-central/raw-file/default/python/mozboot/bin/bootstrap.py --output bootstrap.py
+  python3 bootstrap.py --no-interactive
+fi
 cp -rf $basedir/changed/* mozilla-unified/
 # It is using nightly branding no matter what so we replace the nightly stuff with our stuff
 cp -rf mozilla-unified/browser/branding/unofficial/* mozilla-unified/browser/branding/nightly/*
@@ -28,6 +31,7 @@ cd datcord
 mv firefox.exe datcord.exe
 cd ..
 cp ../windows/datcord.ico datcord/
+cp -r ../distribution datcord/
 # Based on librewolf mk.py
 mkdir x86-ansi
 wget -q -O ./x86-ansi/nsProcess.dll https://shorsh.de/upload/we7v/nsProcess.dll
@@ -35,9 +39,5 @@ wget -q -O ./vc_redist.x64.exe https://aka.ms/vs/17/release/vc_redist.x64.exe
 cp ../windows/setup.nsi .
 cp ../windows/datcord.ico .
 cp ../windows/banner.bmp .
-Xcopy /E /I ../distribution ./
 makensis.exe -V1 setup.nsi
 # Setup filename will be datcordSetup-win64.exe
-
-
-

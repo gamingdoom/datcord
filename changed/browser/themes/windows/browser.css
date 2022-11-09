@@ -169,6 +169,11 @@
      box-shadow: none;
    }
  }
+
+ /* Hide navbar for Datcord*/
+ #nav-bar {
+  visibility: collapse;
+}
  
  #print-preview-toolbar:not(:-moz-lwtheme) {
    appearance: auto;
@@ -366,6 +371,8 @@
  #TabsToolbar {
    min-height: 0;
    padding: 0;
+   /* Hide tabstoolbar for Datcord */
+   visibility: collapse;
  }
  
  @media (-moz-windows-default-theme: 0) {
@@ -605,3 +612,4 @@
  #historySwipeAnimationNextArrow:-moz-locale-dir(ltr) {
    transform: scaleX(-1);
  }
+ 
