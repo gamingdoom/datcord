@@ -21,6 +21,9 @@
 # About Datcord
   Datcord is an open-source Discord client that respects your privacy. Datcord is a specialized version of Firefox (the official client is Chromium-based). Datcord handles emoji rendering better than the normal Discord client. Note that Discord can still track you even if you use Datcord. I chose Firefox for Datcord because Chromium-based browsers have a monopoly and if Firefox were to die out, only Chromium would be left.
 
+### Note: 
+I don't use discord/datcord anymore because of their [terrible TOS](https://tosdr.org/en/service/536). I am busy and I am not able to maintain Datcord as much anymore. I might release occasional updates but there are no guarantees. 
+
 # Install
 - # Linux
   - ## Arch Linux
