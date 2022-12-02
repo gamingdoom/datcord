@@ -4,11 +4,11 @@ HERE="$(dirname "$(readlink -f "${0}")")"
 export MOZ_LEGACY_PROFILES=1
 export SNAP_NAME="firefox"
 BIN="${HERE}/usr/bin/datcord"
-args=("$@")
+args=$@
 NUMBER_OF_ARGS="$#"
 
 if [ $NUMBER_OF_ARGS -eq 0 ] ; then
-	exec "$BIN"
+	$BIN
 else
-	exec "$BIN" "${args[@]}"
+	$BIN $@
 fi
