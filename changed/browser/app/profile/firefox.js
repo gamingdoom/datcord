@@ -1,4 +1,4 @@
-#filter dumbComments emptyLines substitution
+is:issue is:closed #filter dumbComments emptyLines substitution
 
 // -*- indent-tabs-mode: nil; js-indent-level: 2 -*-
 // This Source Code Form is subject to the terms of the Mozilla Public
@@ -682,11 +682,11 @@ pref("permissions.default.shortcuts", 0);
 pref("permissions.desktop-notification.postPrompt.enabled", true);
 pref("permissions.desktop-notification.notNow.enabled", false);
 
-pref("permissions.fullscreen.allowed", false);
+pref("permissions.fullscreen.allowed", true);
 
 // handle links targeting new windows
 // 1=current window/tab, 2=new window, 3=new tab in most recent window
-pref("browser.link.open_newwindow", 3);
+pref("browser.link.open_newwindow", 2);
 
 // handle external links (i.e. links opened from a different application)
 // default: use browser.link.open_newwindow
