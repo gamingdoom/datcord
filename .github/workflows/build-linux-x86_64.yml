@@ -25,11 +25,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Cache
-        uses: actions/cache@v3.0.11
-        with:
-          path: mozilla-unified
-          key: ${{ runner.os }}-mozilla-unified
+      #- name: Cache
+      #  uses: actions/cache@v3.0.11
+      #  with:
+      #    path: mozilla-unified
+      #    key: ${{ runner.os }}-mozilla-unified
           
       # Runs a set of commands using the runners shell
       - name: Get deps, build and package
