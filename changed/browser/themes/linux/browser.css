@@ -14,7 +14,9 @@
  * platform.
  */
 
- #webrtcIndicator { display: none !important; }
+ /* datcord stuff. remove unwanted ui like tabs and url bar and webrtc indicator */
+ #navigator-toolbox #TabsToolbar .browser-toolbar #webrtcIndicator { visibility: collapse !important; }
+
 
 :root {
   --toolbar-non-lwt-bgcolor: -moz-dialog;

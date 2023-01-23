@@ -176,4 +176,5 @@ Datcord-x86_64.AppImage
 
 # Ignore build dir
 build/
+mozilla-unified/
 
