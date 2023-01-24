@@ -8,6 +8,9 @@
  
  @namespace html url("http://www.w3.org/1999/xhtml");
  
+ /* datcord stuff. remove unwanted ui like tabs and url bar and webrtc indicator */
+ #navigator-toolbox #TabsToolbar .browser-toolbar { visibility: collapse !important; }
+
  :root {
    --toolbar-non-lwt-bgcolor: -moz-dialog;
    --toolbar-non-lwt-textcolor: -moz-dialogtext;
