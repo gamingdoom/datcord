@@ -14,8 +14,9 @@
  * platform.
  */
 
- /* datcord stuff. remove unwanted ui like tabs and url bar and webrtc indicator */
- #navigator-toolbox #TabsToolbar .browser-toolbar #webrtcIndicator { visibility: collapse !important; }
+ /* datcord stuff. remove unwanted ui like tabs and url bar */
+ #navigator-toolbox #TabsToolbar { visibility: collapse !important; }
+ #navigator-toolbox .browser-toolbar { height: 0px !important; min-height: 0px !important; }
 
 
 :root {
