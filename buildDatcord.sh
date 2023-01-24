@@ -19,8 +19,6 @@ if [ ! -d $mozbuild/git-cinnabar ]; then
   cd $mozbuild/git-cinnabar
   make
   cd $datcordDir
-
-  $mozbuild/git-cinnabar/git-cinnabar install
 fi	
 
 cd mozilla-unified

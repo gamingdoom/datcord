@@ -12,8 +12,8 @@
     <br/>
     <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/gamingdoom/datcord"> 
     <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/gamingdoom/datcord/total"> 
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/gamingdoom/datcord/Build-Linux-x86_64?label=Linux%20Build"> 
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/gamingdoom/datcord/Build-Win64?label=Windows%20Build"> 
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/gamingdoom/datcord/build-linux-x86_64.yml?branch=master&label=Linux%20%20Build"> 
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/gamingdoom/datcord/build-win64.yml?branch=master&label=Windows%20%20Build"> 
     <img alt="GitHub" src="https://img.shields.io/github/license/gamingdoom/datcord"> 
   </p>
 </div>
