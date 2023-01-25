@@ -2,7 +2,7 @@
   "policies": {
     "DisplayMenuBar" : "always",
     "Extensions": {
-      "Install": ["https://addons.mozilla.org/firefox/downloads/file/3831723/open_with-7.2.6.xpi"]
+      "Install": ["https://addons.mozilla.org/firefox/downloads/file/3831723/open_with-7.2.6.xpi", "https://github.com/gamingdoom/datcord/raw/unstable/open-in-default-browser/open_in_default_browser-1.0.zip"]
     },
     "Handlers": {
       "schemes": {
