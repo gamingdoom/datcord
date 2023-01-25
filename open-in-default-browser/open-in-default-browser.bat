@@ -1,1 +1,1 @@
-python.exe .\open-in-default-browser-windows.py %*
+explorer.exe %*:~5%
