@@ -1,0 +1,2 @@
+#!/bin/bash
+xdg-open $(echo $1 | sed "s/open\://g")

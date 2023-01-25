@@ -1,0 +1,8 @@
+{
+    "name": "xdgopen",
+    "description": "Example host for native messaging",
+    "path": "/usr/bin/xdg-open",
+    "type": "stdio",
+    "allowed_extensions": [ "open-in-default-browser@gamingdoom.net" ]
+  }
+  

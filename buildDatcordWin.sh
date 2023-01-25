@@ -31,7 +31,8 @@ cd datcord
 mv firefox.exe datcord.exe
 cd ..
 cp ../windows/datcord.ico datcord/
-cp -r ../distribution datcord/
+mkdir datcord/distribution
+cp ../distribution/policies-windows.json datcord/distribution/policies.json
 # Based on librewolf mk.py
 mkdir x86-ansi
 wget -q -O ./x86-ansi/nsProcess.dll https://shorsh.de/upload/we7v/nsProcess.dll

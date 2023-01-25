@@ -19,6 +19,12 @@ is:issue is:closed #filter dumbComments emptyLines substitution
   #endif
 #endif
 
+// Datcord open links in default browser
+pref("network.protocol-handler.external.open", true)
+//pref("network.protocol-handler.app.open", "/home/pranay/open-in-default-browser/open-in-default-browser")
+pref("network.protocol-handler.warn-external.open", true)
+pref("network.protocol-handler.expose.open", false)
+
 pref("browser.hiddenWindowChromeURL", "chrome://browser/content/hiddenWindowMac.xhtml");
 
 // Enables some extra Extension System Logging (can reduce performance)
