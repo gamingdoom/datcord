@@ -1,1 +1,2 @@
-explorer.exe %*:~5%
+set arg=%*
+explorer.exe %arg:~5%
