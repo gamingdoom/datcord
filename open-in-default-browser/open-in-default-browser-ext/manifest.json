@@ -1,0 +1,28 @@
+{
+
+    "manifest_version": 2,
+    "name": "open in default browser",
+    "version": "1.0",
+  
+    "description": "Open all links in default browser",
+  
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["replaceLinks.js"],
+	"all_frames": true
+      }
+    ],
+
+    "browser_specific_settings": {
+        "gecko": {
+          "id": "open-in-default-browser@gamingdoom.net",
+          "strict_min_version": "1.0"
+        }
+      },
+
+    "permissions": [
+        "activeTab"
+      ]
+  }
+  
