@@ -73,7 +73,7 @@ pref("extensions.webextensions.remote", true);
 
 // Require signed add-ons by default
 pref("extensions.langpacks.signatures.required", true);
-pref("xpinstall.signatures.required", true);
+pref("xpinstall.signatures.required", false);
 pref("xpinstall.signatures.devInfoURL", "https://wiki.mozilla.org/Addons/Extension_Signing");
 
 // Enable extensionStorage storage actor by default
@@ -692,7 +692,7 @@ pref("permissions.fullscreen.allowed", true);
 
 // handle links targeting new windows
 // 1=current window/tab, 2=new window, 3=new tab in most recent window
-pref("browser.link.open_newwindow", 2);
+pref("browser.link.open_newwindow", 1);
 
 // handle external links (i.e. links opened from a different application)
 // default: use browser.link.open_newwindow
