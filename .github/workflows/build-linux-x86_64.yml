@@ -48,7 +48,7 @@ jobs:
           make
           ls
           cd $datcorddir
-          ./buildDatcord.sh
+          bash ./buildDatcord.sh
           
       - name: Edit Tarball
         run: |
