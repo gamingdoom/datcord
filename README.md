@@ -34,11 +34,6 @@ I don't use discord/datcord anymore because of their [terrible TOS](https://tosd
     - Grab the AppImage from [releases](https://github.com/gamingdoom/datcord/releases/) and run it. If you choose to integrate it, run
     
        ``~/Applications/Datcord-* --appimage-portable-home``
-    - For Datcord to work properly (to be able to open links), you need to save [this script](https://raw.githubusercontent.com/gamingdoom/datcord/unstable/open-in-default-browser/open-in-default-browser) as /usr/share/open-in-default-browser:
-    
-       ```
-       sudo wget https://raw.githubusercontent.com/gamingdoom/datcord/unstable/open-in-default-browser/open-in-default-browser -O /usr/share/open-in-default-browser && sudo chmod +x /usr/share/open-in-default-browser
-       ```
   - ## Installer Script
     ``curl https://raw.githubusercontent.com/gamingdoom/datcord/master/installDatcord.sh | bash``
   - ## Tarball
