@@ -57,7 +57,7 @@ jobs:
             mv datcord/firefox datcord/datcord
             mv datcord/firefox-bin datcord/datcord-bin
             cp -r distribution/* datcord/
-	    mv datcord/distribution/policies-linux.json datcord/distribution/policies.json
+            mv datcord/distribution/policies-linux.json datcord/distribution/policies.json
             tar -cjf datcord.tar.bz2 datcord 
       - name: Appimage it
         run: |
