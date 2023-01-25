@@ -56,8 +56,8 @@ jobs:
             tar --strip-components=1 -xvf  mozilla-unified/obj-x86_64-pc-linux-gnu/dist/*.tar.bz2 -C datcord/
             mv datcord/firefox datcord/datcord
             mv datcord/firefox-bin datcord/datcord-bin
-            mkdir datcord/distribution
-            mv distribution/policies-linux.json datcord/distribution/policies.json
+            cp -r distribution/* datcord/
+	    mv datcord/distribution/policies-linux.json datcord/distribution/policies.json
             tar -cjf datcord.tar.bz2 datcord 
       - name: Appimage it
         run: |

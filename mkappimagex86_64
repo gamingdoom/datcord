@@ -7,7 +7,7 @@ mkdir -p datcord.AppImage/usr/bin/
 tar --strip-components=1 -xvf  mozilla-unified/obj-x86_64-pc-linux-gnu/dist/*.tar.bz2 -C datcord.AppImage/usr/bin/
 mv datcord.AppImage/usr/bin/firefox datcord.AppImage/usr/bin/datcord 
 mv datcord.AppImage/usr/bin/firefox-bin datcord.AppImage/usr/bin/datcord-bin 
-mkdir datcord.AppImage/usr/bin/distribution
-cp -r distribution/policies-linux.json datcord.AppImage/usr/bin/distribution/policies.json
+cp -r distribution/ datcord.AppImage/usr/bin/
+mv datcord.AppImage/usr/bin/distribution/policies-linux.json datcord.AppImage/usr/bin/distribution/policies.json 
 ARCH=x86_64 appimagetool datcord.AppImage/
 
