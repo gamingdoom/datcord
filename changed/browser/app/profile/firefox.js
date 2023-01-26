@@ -19,12 +19,6 @@ is:issue is:closed #filter dumbComments emptyLines substitution
   #endif
 #endif
 
-// Datcord open links in default browser
-pref("network.protocol-handler.external.open", true)
-//pref("network.protocol-handler.app.open", "/home/pranay/open-in-default-browser/open-in-default-browser")
-pref("network.protocol-handler.warn-external.open", true)
-pref("network.protocol-handler.expose.open", false)
-
 pref("browser.hiddenWindowChromeURL", "chrome://browser/content/hiddenWindowMac.xhtml");
 
 // Enables some extra Extension System Logging (can reduce performance)
@@ -73,7 +67,7 @@ pref("extensions.webextensions.remote", true);
 
 // Require signed add-ons by default
 pref("extensions.langpacks.signatures.required", true);
-pref("xpinstall.signatures.required", false);
+pref("xpinstall.signatures.required", true);
 pref("xpinstall.signatures.devInfoURL", "https://wiki.mozilla.org/Addons/Extension_Signing");
 
 // Enable extensionStorage storage actor by default
@@ -692,7 +686,7 @@ pref("permissions.fullscreen.allowed", true);
 
 // handle links targeting new windows
 // 1=current window/tab, 2=new window, 3=new tab in most recent window
-pref("browser.link.open_newwindow", 1);
+pref("browser.link.open_newwindow", 2);
 
 // handle external links (i.e. links opened from a different application)
 // default: use browser.link.open_newwindow
