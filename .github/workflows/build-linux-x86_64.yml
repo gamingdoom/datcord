@@ -58,6 +58,7 @@ jobs:
             cp -r distribution/ datcord/
             mv datcord/distribution/policies-linux.json datcord/distribution/policies.json
             cp open-in-default-browser/open-in-default-browser datcord/open-in-default-browser
+            cp src/launch-datcord datcord/launch-datcord
             tar -cjf datcord.tar.bz2 datcord 
       - name: Appimage it
         run: |

@@ -8,7 +8,8 @@ bin="${here}/usr/bin/datcord"
 argv=$@
 argc="$#"
 
-cd ${here}
+cd ${here}/usr/bin/
+cp ${here}/usr/bin/open-in-default-browser /tmp/open-in-default-browser
 
 if [ $argc -eq 0 ] ; then
 	$bin
@@ -17,3 +18,4 @@ else
 fi
 
 cd ${origLocation}
+rm /tmp/open-in-default-browser

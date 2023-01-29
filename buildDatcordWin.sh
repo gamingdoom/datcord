@@ -5,7 +5,7 @@ then
   curl https://hg.mozilla.org/mozilla-central/raw-file/default/python/mozboot/bin/bootstrap.py --output bootstrap.py
   python3 bootstrap.py --no-interactive
 fi
-cp -rf $basedir/changed/* mozilla-unified/
+cp -rf $basedir/src/changed/* mozilla-unified/
 # It is using nightly branding no matter what so we replace the nightly stuff with our stuff
 cp -rf mozilla-unified/browser/branding/unofficial/* mozilla-unified/browser/branding/nightly/*
 cd mozilla-unified
