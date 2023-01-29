@@ -23,7 +23,7 @@ fi
 
 cd mozilla-unified
 cp -r ../src/changed/* .
-#patch -p1 ../mozilla_dirsFromLibreWolf.patch
+patch -p1 ../mozilla_dirsFromLibreWolf.patch
 ./mach configure
 ./mach build
 ./mach package
