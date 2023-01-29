@@ -11,8 +11,7 @@ cp -rf mozilla-unified/browser/branding/unofficial/* mozilla-unified/browser/bra
 cd mozilla-unified
 echo "ac_add_options --disable-default-browser-agent" >> mozconfig
 echo "ac_add_options --enable-release" >> mozconfig
-# Doesn't work properly if app name is datcord.
-echo "ac_add_options --with-app-name=firefox" >> mozconfig
+echo "ac_add_options --with-app-name=datcord" >> mozconfig
 echo "ac_add_options --with-branding=browser/branding/unofficial" >> mozconfig
 cat mozconfig
 patch -p1 $basedir/mozilla_dirsFromLibreWolf.patch
