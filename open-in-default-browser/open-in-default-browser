@@ -2,15 +2,4 @@
 #If you want to use a specific browser, change this to the executable of that. xdg-open opens in your default browser.
 browser="xdg-open"
 
-# Firefox specific stuff because firefox doesnt like the different profiles that datcord and itself use
-if [ $(xdg-mime query default x-scheme-handler/https) == "firefox.desktop"  ]; then
-	cd ~/.mozilla/firefox/
-	if [[ $(grep '\[Profile[^0]\]' profiles.ini) ]]
-	then PROFPATH=$(grep -E '^\[Profile|^Path|^Default' profiles.ini | grep -1 '^Default=1' | grep '^Path' | cut -c6-)
-	else PROFPATH=$(grep 'Path=' profiles.ini | sed 's/^Path=//')
-	fi
-
-	browser="firefox -P $PROFPATH"
-fi
-
 $browser $(echo $1 | sed "s/open\://g")
