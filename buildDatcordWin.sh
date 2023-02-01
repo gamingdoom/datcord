@@ -9,10 +9,10 @@ cp -rf $basedir/src/changed/* mozilla-unified/
 # It is using nightly branding no matter what so we replace the nightly stuff with our stuff
 cp -rf mozilla-unified/browser/branding/unofficial/* mozilla-unified/browser/branding/nightly/*
 cd mozilla-unified
-echo "ac_add_options --disable-default-browser-agent" >> mozconfig
+echo "ac_add_options --disable-default-browser-agent" > mozconfig
 echo "ac_add_options --enable-release" >> mozconfig
 echo "ac_add_options --with-app-name=firefox" >> mozconfig
-echo "ac_add_options --with-branding=browser/branding/unofficial" >> mozconfig
+echo "ac_add_options --with-branding=browser/branding/datcord" >> mozconfig
 cat mozconfig
 patch -p1 $basedir/mozilla_dirsFromLibreWolf.patch
 ./mach build
