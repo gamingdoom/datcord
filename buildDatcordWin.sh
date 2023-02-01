@@ -1,6 +1,6 @@
 # Run with MozillaBuild
 basedir=$(dirname "$0")
-if [[ ! -d mozilla-unified ]] 
+if [ ! -d mozilla-unified ]
 then
   curl https://hg.mozilla.org/mozilla-central/raw-file/default/python/mozboot/bin/bootstrap.py --output bootstrap.py
   python3 bootstrap.py --no-interactive
@@ -14,7 +14,7 @@ echo "ac_add_options --enable-release" >> mozconfig
 echo "ac_add_options --with-app-name=firefox" >> mozconfig
 echo "ac_add_options --with-branding=browser/branding/datcord" >> mozconfig
 cat mozconfig
-patch -p1 $basedir/mozilla_dirsFromLibreWolf.patch
+patch -p1 < $basedir/mozilla_dirsFromLibreWolf.patch
 ./mach build
 ./mach package
 
