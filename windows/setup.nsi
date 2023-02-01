@@ -8,7 +8,7 @@
 !define APPNAME "Datcord"
 !define PROGNAME "datcord"
 !define EXECUTABLE "${PROGNAME}.exe"
-!define PROG_VERSION "0.3.2"
+!define PROG_VERSION "0.4.0"
 !define COMPANYNAME "Datcord"
 !define ESTIMATED_SIZE 190000
 !define MUI_ICON "datcord.ico"
