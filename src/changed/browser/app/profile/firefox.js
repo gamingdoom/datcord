@@ -2791,6 +2791,8 @@ pref("network.protocol-handler.warn-external.open", true);
 pref("network.protocol-handler.expose.open", false);
 
 // Other Datcord Settings
+pref("general.useragent.override", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36");
+
 pref("permissions.default.camera", 1);
 pref("permissions.default.microphone", 1);
 
