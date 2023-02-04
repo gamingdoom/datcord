@@ -32,34 +32,34 @@ rustup target add x86_64-pc-windows-msvc
 # Install toolchains
 if [ $# -eq 0 ]; then
 	cd $mozbuild
-	./mach artifact toolchain --from-build linux64-binutils 
-	./mach artifact toolchain --from-build linux64-cbindgen 
-	./mach artifact toolchain --from-build linux64-clang 
-	./mach artifact toolchain --from-build linux64-dump_syms 
-	./mach artifact toolchain --from-build linux64-liblowercase 
-	./mach artifact toolchain --from-build linux64-nasm 
-	./mach artifact toolchain --from-build linux64-node 
-	./mach artifact toolchain --from-build linux64-rust-cross 
-	./mach artifact toolchain --from-build linux64-winchecksec 
-	./mach artifact toolchain --from-build linux64-wine 
-	./mach artifact toolchain --from-build nsis
-	./mach artifact toolchain --from-build sysroot-x86_64-linux-gnu
+	$datcordDir/mozilla-unified/mach artifact toolchain --from-build linux64-binutils 
+	$datcordDir/mozilla-unified/mach artifact toolchain --from-build linux64-cbindgen 
+	$datcordDir/mozilla-unified/mach artifact toolchain --from-build linux64-clang 
+	$datcordDir/mozilla-unified/mach artifact toolchain --from-build linux64-dump_syms 
+	$datcordDir/mozilla-unified/mach artifact toolchain --from-build linux64-liblowercase 
+	$datcordDir/mozilla-unified/mach artifact toolchain --from-build linux64-nasm 
+	$datcordDir/mozilla-unified/mach artifact toolchain --from-build linux64-node 
+	$datcordDir/mozilla-unified/mach artifact toolchain --from-build linux64-rust-cross 
+	$datcordDir/mozilla-unified/mach artifact toolchain --from-build linux64-winchecksec 
+	$datcordDir/mozilla-unified/mach artifact toolchain --from-build linux64-wine 
+	$datcordDir/mozilla-unified/mach artifact toolchain --from-build nsis
+	$datcordDir/mozilla-unified/mach artifact toolchain --from-build sysroot-x86_64-linux-gnu
 	cd $datcordDir/mozilla-unified
 else
 	if  [ "$1" -ne "--no-download-toolchains" ]; then
 		cd $mozbuild
-		./mach artifact toolchain --from-build linux64-binutils 
-		./mach artifact toolchain --from-build linux64-cbindgen 
-		./mach artifact toolchain --from-build linux64-clang 
-		./mach artifact toolchain --from-build linux64-dump_syms 
-		./mach artifact toolchain --from-build linux64-liblowercase 
-		./mach artifact toolchain --from-build linux64-nasm 
-		./mach artifact toolchain --from-build linux64-node 
-		./mach artifact toolchain --from-build linux64-rust-cross 
-		./mach artifact toolchain --from-build linux64-winchecksec 
-		./mach artifact toolchain --from-build linux64-wine 
-		./mach artifact toolchain --from-build nsis
-		./mach artifact toolchain --from-build sysroot-x86_64-linux-gnu
+		$datcordDir/mozilla-unified/mach artifact toolchain --from-build linux64-binutils 
+		$datcordDir/mozilla-unified/mach artifact toolchain --from-build linux64-cbindgen 
+		$datcordDir/mozilla-unified/mach artifact toolchain --from-build linux64-clang 
+		$datcordDir/mozilla-unified/mach artifact toolchain --from-build linux64-dump_syms 
+		$datcordDir/mozilla-unified/mach artifact toolchain --from-build linux64-liblowercase 
+		$datcordDir/mozilla-unified/mach artifact toolchain --from-build linux64-nasm 
+		$datcordDir/mozilla-unified/mach artifact toolchain --from-build linux64-node 
+		$datcordDir/mozilla-unified/mach artifact toolchain --from-build linux64-rust-cross 
+		$datcordDir/mozilla-unified/mach artifact toolchain --from-build linux64-winchecksec 
+		$datcordDir/mozilla-unified/mach artifact toolchain --from-build linux64-wine 
+		$datcordDir/mozilla-unified/mach artifact toolchain --from-build nsis
+		$datcordDir/mozilla-unified/mach artifact toolchain --from-build sysroot-x86_64-linux-gnu
 		cd $datcordDir/mozilla-unified
 	fi
 fi
