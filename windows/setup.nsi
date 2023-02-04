@@ -8,7 +8,7 @@
 !define APPNAME "Datcord"
 !define PROGNAME "datcord"
 !define EXECUTABLE "${PROGNAME}.exe"
-!define PROG_VERSION "0.3.2"
+!define PROG_VERSION "0.4.0"
 !define COMPANYNAME "Datcord"
 !define ESTIMATED_SIZE 190000
 !define MUI_ICON "datcord.ico"
@@ -41,7 +41,8 @@ Click Next to continue."
 Section
 
 	# Make sure Datcord is closed before the installation
-	nsProcess::_FindProcess "${EXECUTABLE}" $R0
+	nsProcess::_FindProcess "${EXECUTABLE}"
+	Pop $R0
 	${If} $R0 = 0
 		IfSilent 0 +4
 		DetailPrint "${APPNAME} is still running, aborting because of silent install."
@@ -55,13 +56,17 @@ break:
 		Abort
 continue:
 		DetailPrint "Closing ${APPNAME} gracefully..."
-		nsProcess::_CloseProcess "${EXECUTABLE}" $R0
+		nsProcess::_CloseProcess "${EXECUTABLE}"
+		Pop $R0
 		Sleep 2000
-		nsProcess::_FindProcess "${EXECUTABLE}" $R0
+		nsProcess::_FindProcess "${EXECUTABLE}"
+		Pop $R0
 		${If} $R0 = 0
 			DetailPrint "Failed to close ${APPNAME}, killing it..."
 			nsProcess::_KillProcess "${EXECUTABLE}"
+			nsProcess::_KillProcess "${EXECUTABLE}"
 			Sleep 2000
+			nsProcess::_FindProcess "${EXECUTABLE}"
 			nsProcess::_FindProcess "${EXECUTABLE}"
 			Pop $R0
 		${EndIf}
@@ -106,7 +111,8 @@ SectionEnd
 section "Uninstall"
 
 	# Kill Datcord if it is still running
-	nsProcess::_FindProcess "${EXECUTABLE}" $R0
+	nsProcess::_FindProcess "${EXECUTABLE}"
+	Pop $R0
 	${If} $R0 = 0
 		DetailPrint "${APPNAME} is still running, killing it..."
 		nsProcess::_KillProcess "${EXECUTABLE}"

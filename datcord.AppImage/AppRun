@@ -7,8 +7,14 @@ BIN="${HERE}/usr/bin/datcord"
 args=$@
 NUMBER_OF_ARGS="$#"
 
-if [ $NUMBER_OF_ARGS -eq 0 ] ; then
-	$BIN
+cd ${here}/usr/bin/
+cp ${here}/usr/bin/open-in-default-browser /tmp/open-in-default-browser
+
+if [ $argc -eq 0 ] ; then
+	$bin
 else
 	$BIN $@
 fi
+
+cd ${origLocation}
+rm /tmp/open-in-default-browser

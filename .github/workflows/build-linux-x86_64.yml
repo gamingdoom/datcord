@@ -7,8 +7,6 @@ on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
     branches: [ master, unstable ]
-  pull_request:
-    branches: [ master ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -53,9 +51,12 @@ jobs:
         run: |
             mkdir datcord
             tar --strip-components=1 -xvf  mozilla-unified/obj-x86_64-pc-linux-gnu/dist/*.tar.bz2 -C datcord/
-            mv datcord/firefox datcord/datcord
-            mv datcord/firefox-bin datcord/datcord-bin
-            mv distribution datcord/distribution
+            #mv datcord/firefox datcord/datcord
+            #mv datcord/firefox-bin datcord/datcord-bin
+            cp -r distribution/ datcord/
+            mv datcord/distribution/policies-linux.json datcord/distribution/policies.json
+            cp open-in-default-browser/open-in-default-browser datcord/open-in-default-browser
+            cp src/launch-datcord datcord/launch-datcord
             tar -cjf datcord.tar.bz2 datcord 
       - name: Appimage it
         run: |
@@ -63,8 +64,11 @@ jobs:
             chmod a+x appimagetool-x86_64.AppImage
             mkdir -p datcord.AppImage/usr/bin/
             tar --strip-components=1 -xvf  mozilla-unified/obj-x86_64-pc-linux-gnu/dist/*.tar.bz2 -C datcord.AppImage/usr/bin/
-            mv datcord.AppImage/usr/bin/firefox datcord.AppImage/usr/bin/datcord 
-            mv datcord.AppImage/usr/bin/firefox-bin datcord.AppImage/usr/bin/datcord-bin 
+            #mv datcord.AppImage/usr/bin/firefox datcord.AppImage/usr/bin/datcord 
+            #mv datcord.AppImage/usr/bin/firefox-bin datcord.AppImage/usr/bin/datcord-bin 
+            cp -r distribution/ datcord.AppImage/usr/bin/
+            mv datcord.AppImage/usr/bin/distribution/policies-linux-appimage.json datcord.AppImage/usr/bin/distribution/policies.json 
+            cp open-in-default-browser/open-in-default-browser datcord.AppImage/usr/bin/
             ARCH=x86_64 ./appimagetool-x86_64.AppImage datcord.AppImage/
           
       - name: Upload a Build Artifact

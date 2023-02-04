@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#If you want to use a specific browser, change this to the executable of that. xdg-open opens in your default browser.
+browser="xdg-open"
+
+$browser $(echo $1 | sed "s/open\://g")

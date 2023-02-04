@@ -11,7 +11,7 @@
           "ask": false,
           "handlers": [{
             "name": "default-browser",
-            "path": "/tmp/open-in-default-browser"
+            "path": "C:\\Program Files\\Datcord\\open-in-default-browser.bat"
           }]
         }
       }

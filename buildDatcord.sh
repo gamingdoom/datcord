@@ -22,8 +22,10 @@ if [ ! -d $mozbuild/git-cinnabar ]; then
 fi	
 
 cd mozilla-unified
-cp -r ../changed/* .
-patch -p1 ../mozilla_dirsFromLibreWolf.patch
+cp -r ../src/changed/* .
+cp ../src/mozconfig.linux mozconfig
+patch -p1 < ../mozilla_dirsFromLibreWolf.patch
+
 ./mach configure
 ./mach build
 ./mach package
