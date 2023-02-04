@@ -13,7 +13,7 @@ export HOST_CC="$mozbuild/clang/bin/clang"
 export HOST_CXX="$mozbuild/clang/bin/clang++"
 
 export WINE="$mozbuild/wine/bin/wine64"
-export MIDL="$mozbuild/wine/bin/widl"
+#export MIDL="$mozbuild/wine/bin/widl"
 
 ac_add_options --target=x86_64-pc-mingw32
 #ac_add_options --disable-bootstrap
