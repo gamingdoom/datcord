@@ -4,9 +4,7 @@ export mozbuild=~/.mozbuild
 export PATH="$PATH:$mozbuild/git-cinnabar"
 datcordDir=$PWD
 
-if [ ! -d $mozbuild ]; then
-  mkdir $mozbuild
-fi
+mkdir -p $mozbuild
 
 if [ ! -d mozilla-unified ]; then
   mkdir mozilla-unified
