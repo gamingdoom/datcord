@@ -93,6 +93,9 @@ if [ ! -d $mozbuild/win-cross ]; then
 	cd $datcordDir/mozilla-unified
 fi
 
+ls $mozbuild
+ls $mozbuild/wine/bin
+
 ./mach configure
 ./mach build
 ./mach package
