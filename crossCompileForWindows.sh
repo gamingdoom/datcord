@@ -30,7 +30,7 @@ patch -p1 < ../mozilla_dirsFromLibreWolf.patch
 rustup target add x86_64-pc-windows-msvc
 
 # Install toolchains
-if [ ! $1 == "--no-download-toolchains" ]; then
+if [ $# -eq 0 ]; then
 	./mach artifact toolchain --from-build linux64-binutils 
 	./mach artifact toolchain --from-build linux64-cbindgen 
 	./mach artifact toolchain --from-build linux64-clang 
@@ -43,6 +43,22 @@ if [ ! $1 == "--no-download-toolchains" ]; then
 	./mach artifact toolchain --from-build linux64-wine 
 	./mach artifact toolchain --from-build nsis
 	./mach artifact toolchain --from-build sysroot-x86_64-linux-gnu
+	
+else
+	if  [ "$1" -ne "--no-download-toolchains" ]; then
+		./mach artifact toolchain --from-build linux64-binutils 
+		./mach artifact toolchain --from-build linux64-cbindgen 
+		./mach artifact toolchain --from-build linux64-clang 
+		./mach artifact toolchain --from-build linux64-dump_syms 
+		./mach artifact toolchain --from-build linux64-liblowercase 
+		./mach artifact toolchain --from-build linux64-nasm 
+		./mach artifact toolchain --from-build linux64-node 
+		./mach artifact toolchain --from-build linux64-rust-cross 
+		./mach artifact toolchain --from-build linux64-winchecksec 
+		./mach artifact toolchain --from-build linux64-wine 
+		./mach artifact toolchain --from-build nsis
+		./mach artifact toolchain --from-build sysroot-x86_64-linux-gnu
+	fi
 fi
 
 
