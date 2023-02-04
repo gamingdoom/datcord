@@ -1,0 +1,30 @@
+# mozbuild is defined in crossCompileForWindows.sh
+export WINSYSROOT="$mozbuild/win-cross/vs"
+
+# Cross compile stuff
+mk_add_options "export LOWERCASE_DIRS=$mozbuild/win-cross"
+
+EXTRA_PATH="$mozbuild/win-cross/vs/vc/tools/msvc/14.29.30133/bin/hostx64/x64:"
+mk_add_options "export PATH=$EXTRA_PATH$PATH"
+
+export CC="$mozbuild/clang/bin/clang-cl"
+export CXX="$mozbuild/clang/bin/clang-cl"
+export HOST_CC="$mozbuild/clang/bin/clang"
+export HOST_CXX="$mozbuild/clang/bin/clang++"
+
+export WINE="$mozbuild/wine/bin/wine64"
+export MIDL="$mozbuild/wine/bin/widl"
+
+ac_add_options --target=x86_64-pc-mingw32
+#ac_add_options --disable-bootstrap
+ac_add_options --enable-application=browser 
+
+# Normal build stuff
+ac_add_options --with-app-name=datcord
+ac_add_options --with-branding=browser/branding/datcord
+
+export MOZ_APP_NAME=datcord
+export MOZ_APP_BASENAME=Datcord
+export MOZ_APP_PROFILE=datcord
+export MOZ_APP_VENDOR=Datcord
+export MOZ_APP_DISPLAYNAME=Datcord
