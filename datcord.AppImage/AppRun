@@ -1,12 +1,11 @@
 #!/bin/sh
 
-origLocation=$PWD
-here="$(dirname "$(readlink -f "${0}")")"
+HERE="$(dirname "$(readlink -f "${0}")")"
 export MOZ_LEGACY_PROFILES=1
 export SNAP_NAME="firefox"
-bin="${here}/usr/bin/datcord"
-argv=$@
-argc="$#"
+BIN="${HERE}/usr/bin/datcord"
+args=$@
+NUMBER_OF_ARGS="$#"
 
 cd ${here}/usr/bin/
 cp ${here}/usr/bin/open-in-default-browser /tmp/open-in-default-browser
@@ -14,7 +13,7 @@ cp ${here}/usr/bin/open-in-default-browser /tmp/open-in-default-browser
 if [ $argc -eq 0 ] ; then
 	$bin
 else
-	$bin $argv
+	$BIN $@
 fi
 
 cd ${origLocation}

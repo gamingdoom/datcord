@@ -64,7 +64,9 @@ continue:
 		${If} $R0 = 0
 			DetailPrint "Failed to close ${APPNAME}, killing it..."
 			nsProcess::_KillProcess "${EXECUTABLE}"
+			nsProcess::_KillProcess "${EXECUTABLE}"
 			Sleep 2000
+			nsProcess::_FindProcess "${EXECUTABLE}"
 			nsProcess::_FindProcess "${EXECUTABLE}"
 			Pop $R0
 		${EndIf}
