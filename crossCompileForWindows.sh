@@ -31,6 +31,7 @@ rustup target add x86_64-pc-windows-msvc
 
 # Install toolchains
 if [ $# -eq 0 ]; then
+	cd $mozbuild
 	./mach artifact toolchain --from-build linux64-binutils 
 	./mach artifact toolchain --from-build linux64-cbindgen 
 	./mach artifact toolchain --from-build linux64-clang 
@@ -43,9 +44,10 @@ if [ $# -eq 0 ]; then
 	./mach artifact toolchain --from-build linux64-wine 
 	./mach artifact toolchain --from-build nsis
 	./mach artifact toolchain --from-build sysroot-x86_64-linux-gnu
-	
+	cd $datcordDir/mozilla-unified
 else
 	if  [ "$1" -ne "--no-download-toolchains" ]; then
+		cd $mozbuild
 		./mach artifact toolchain --from-build linux64-binutils 
 		./mach artifact toolchain --from-build linux64-cbindgen 
 		./mach artifact toolchain --from-build linux64-clang 
@@ -58,6 +60,7 @@ else
 		./mach artifact toolchain --from-build linux64-wine 
 		./mach artifact toolchain --from-build nsis
 		./mach artifact toolchain --from-build sysroot-x86_64-linux-gnu
+		cd $datcordDir/mozilla-unified
 	fi
 fi
 
