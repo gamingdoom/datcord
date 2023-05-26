@@ -1,5 +1,3 @@
-console.log("amongus");
-
 setInterval(changeLinks, 1000)
 
 // This allows you to call the function even later if needed
