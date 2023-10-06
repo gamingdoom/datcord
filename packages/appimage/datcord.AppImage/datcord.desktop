@@ -1,6 +1,10 @@
 [Desktop Entry]
 Name=Datcord
-Exec=MOZ_LEGACY_PROFILES=1 SNAP_NAME="firefox" datcord
+Exec=datcord
 Icon=datcord256
 Type=Application
 Categories=Chat
+Comment=
+Path=
+Terminal=false
+StartupNotify=false
