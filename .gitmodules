@@ -1,0 +1,6 @@
+[submodule "packages/flatpak/shared-modules"]
+	path = packages/flatpak/shared-modules
+	url = https://github.com/flathub/shared-modules.git
+[submodule "open-in-default-browser"]
+	path = open-in-default-browser
+	url = https://github.com/gamingdoom/open-in-default-browser

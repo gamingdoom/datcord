@@ -2,7 +2,7 @@
   "policies": {
     "DisplayMenuBar" : "never",
     "Extensions": {
-      "Install": ["https://github.com/gamingdoom/datcord/raw/master/open-in-default-browser/open_in_default_browser-1.0.zip"]
+      "Install": ["https://github.com/gamingdoom/open-in-default-browser/releases/download/continuous/open_in_default_browser-1.0.zip"]
     },
     "Handlers": {
       "schemes": {

@@ -29,3 +29,15 @@ patch -p1 < ../mozilla_dirsFromLibreWolf.patch
 ./mach configure
 ./mach build
 ./mach package
+
+cd ..
+
+mkdir datcord
+tar --strip-components=1 -xvf  mozilla-unified/obj-x86_64-pc-linux-gnu/dist/*.tar.bz2 -C datcord/
+#mv datcord/firefox datcord/datcord
+#mv datcord/firefox-bin datcord/datcord-bin
+cp -r distribution/ datcord/
+mv datcord/distribution/policies-linux.json datcord/distribution/policies.json
+cp open-in-default-browser/open-in-default-browser datcord/open-in-default-browser
+cp src/launch-datcord datcord/launch-datcord
+tar -cjf datcord.tar.bz2 datcord 

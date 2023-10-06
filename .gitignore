@@ -171,11 +171,20 @@ testing/raptor/raptor/tests/json/
 testing/raptor/webext/raptor/auto_gen_test_config.js
 
 # Ignore appimages
-datcord.AppImage/usr/bin/*
-Datcord-x86_64.AppImage
+packages/appimage/datcord.AppImage/usr/bin/*
+packages/appimage/Datcord-x86_64.AppImage
+
+# Ignore flatpak
+packages/flatpak/flatpak
+packages/flatpak/shared-modules
+packages/flatpak/.flatpak-builder
+
+# ignore built
+datcord.tar.bz2
 
 # Ignore build dir
 build/
 mozilla-unified/
 work/
+datcord/
 

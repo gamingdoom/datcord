@@ -60,6 +60,7 @@ jobs:
             tar -cjf datcord.tar.bz2 datcord 
       - name: Appimage it
         run: |
+            cd packages/appimage
             wget "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
             chmod a+x appimagetool-x86_64.AppImage
             mkdir -p datcord.AppImage/usr/bin/
@@ -70,6 +71,13 @@ jobs:
             mv datcord.AppImage/usr/bin/distribution/policies-linux-appimage.json datcord.AppImage/usr/bin/distribution/policies.json 
             cp open-in-default-browser/open-in-default-browser datcord.AppImage/usr/bin/
             ARCH=x86_64 ./appimagetool-x86_64.AppImage datcord.AppImage/
+            cd ../..
+        
+      - name: Flatpak it
+        run: |
+            cd packages/flatpak
+            chmod +x mkflatpak.sh
+            ./mkflatpak.sh
           
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.4
