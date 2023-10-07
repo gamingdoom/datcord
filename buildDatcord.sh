@@ -24,7 +24,7 @@ fi
 cd mozilla-unified
 cp -r ../src/changed/* .
 cp ../src/mozconfig.linux mozconfig
-patch -p1 < ../mozilla_dirsFromLibreWolf.patch
+patch -p1 < ../src/mozilla_dirsFromLibreWolf.patch
 
 ./mach configure
 ./mach build

@@ -99,6 +99,8 @@ cp $mozbuild/win-cross/vs/Windows Kits/10/bin/10.0.19041.0/x64/fxc.exe $mozbuild
 ls $mozbuild
 ls $mozbuild/wine/bin
 
+patch -p1 < windows/fxc.patch
+
 ./mach configure
 ./mach build
 ./mach package

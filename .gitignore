@@ -179,6 +179,9 @@ packages/flatpak/flatpak
 packages/flatpak/shared-modules
 packages/flatpak/.flatpak-builder
 
+# Ignore windows build stuff
+x86_ansi
+
 # ignore built
 datcord.tar.bz2
 
