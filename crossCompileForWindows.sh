@@ -94,6 +94,8 @@ if [ ! -d $mozbuild/win-cross ]; then
 	cd $datcordDir/mozilla-unified
 fi
 
+cp $mozbuild/win-cross/vs/Windows Kits/10/bin/10.0.19041.0/x64/fxc.exe $mozbuild/win-cross/vs/Windows Kits/10/bin/10.0.19041.0/x64/fxc2.exe
+
 ls $mozbuild
 ls $mozbuild/wine/bin
 
