@@ -80,11 +80,11 @@ jobs:
             ARCH=x86_64 ./appimagetool-x86_64.AppImage datcord.AppImage/
             cd ../..
         
-      - name: Flatpak it
-        run: |
-            cd packages/flatpak
-            chmod +x mkflatpak.sh
-            ./mkflatpak.sh
+#      - name: Flatpak it
+#        run: |
+#            cd packages/flatpak
+#            chmod +x mkflatpak.sh
+#            ./mkflatpak.sh
           
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.4
