@@ -48,6 +48,6 @@ I don't use discord/datcord anymore because of their [terrible TOS](https://tosd
 
 # Building from source
 ```
-git clone https://github.com/gamingdoom/datcord.git && cd datcord
+git clone https://github.com/gamingdoom/datcord.git --recurse-submodules && cd datcord
 ./buildDatcord.sh
 ```
