@@ -4,3 +4,6 @@
 [submodule "open-in-default-browser"]
 	path = open-in-default-browser
 	url = https://github.com/gamingdoom/open-in-default-browser
+[submodule "packages/arch-datcord-bin"]
+	path = packages/arch-datcord-bin
+	url = https://aur.archlinux.org/datcord-bin.git
