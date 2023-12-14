@@ -22,7 +22,7 @@ fi
 cd mozilla-unified
 cp -r ../src/changed/* .
 cp ../src/mozconfig.windows mozconfig
-patch -p1 < ../mozilla_dirsFromLibreWolf.patch
+patch -p1 < ../src/mozilla_dirsFromLibreWolf.patch
 
 # Add cross compile target
 rustup target add x86_64-pc-windows-msvc
