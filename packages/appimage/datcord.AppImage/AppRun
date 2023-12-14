@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 HERE="$(dirname "$(readlink -f "${0}")")"
 export MOZ_LEGACY_PROFILES=1
@@ -7,11 +7,11 @@ BIN="${HERE}/usr/bin/datcord"
 args=$@
 NUMBER_OF_ARGS="$#"
 
-cd ${here}/usr/bin/
-cp ${here}/usr/bin/open-in-default-browser /tmp/open-in-default-browser
+#cd usr/bin/
+cp ${HERE}/usr/bin/open-in-default-browser /tmp/open-in-default-browser
 
-if [ $argc -eq 0 ] ; then
-	$bin
+if [ $# -eq 0 ] ; then
+	$BIN
 else
 	$BIN $@
 fi
