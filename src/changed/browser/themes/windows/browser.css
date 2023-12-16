@@ -10,7 +10,7 @@
  
  /* datcord stuff. remove unwanted ui like tabs and url bar and webrtc indicator */
  #TabsToolbar { visibility: collapse !important; }
- #navigator-toolbox .browser-toolbar { height: 0px !important; min-height: 0px !important; visibility: visible;}
+ #navigator-toolbox .browser-toolbar { height: 0px !important; min-height: 0px !important; visibility: visible; border-bottom: 0px !important;}
 
  :root {
    --toolbar-non-lwt-bgcolor: -moz-dialog;

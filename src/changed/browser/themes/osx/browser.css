@@ -50,6 +50,7 @@
   appearance: none;
   background-color: transparent;
   border-top: none;
+  border-bottom: 0px !important;
 }
 
 .browser-toolbar {
