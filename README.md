@@ -26,6 +26,8 @@ I don't use discord/datcord anymore because of their [terrible TOS](https://tosd
 
 # Install
 - # Linux
+  - ## Flatpak
+    ``flatpak install io.github.gamingdoom.Datcord``
   - ## Arch Linux
     - If you use Arch or an Arch-based distro, Datcord is available on the AUR:
 	
