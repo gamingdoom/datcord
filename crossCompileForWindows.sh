@@ -127,5 +127,5 @@ wget -q -O ./vc_redist.x64.exe https://aka.ms/vs/17/release/vc_redist.x64.exe
 cp ../windows/setup.nsi .
 cp ../windows/datcord.ico .
 cp ../windows/banner.bmp .
-$mozbuild/wine/bin/wine $mozbuild/nsis/makensis.exe -V1 setup.nsi
+DISPLAY=:0 $mozbuild/wine/bin/wine $mozbuild/nsis/makensis.exe -V1 setup.nsi
 # Setup filename will be datcordSetup-win64.exe
