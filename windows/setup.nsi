@@ -56,7 +56,7 @@ break:
 		Abort
 continue:
 		DetailPrint "Closing ${APPNAME} gracefully..."
-		nsProcess::_CloseProcess "${EXECUTABLE}"
+		nsProcess::_KillProcess "${EXECUTABLE}"
 		Pop $R0
 		Sleep 2000
 		nsProcess::_FindProcess "${EXECUTABLE}"
