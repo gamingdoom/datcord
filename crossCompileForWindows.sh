@@ -122,7 +122,7 @@ cp ../distribution/policies-windows.json datcord/distribution/policies.json
 cp -r ../open-in-default-browser/* datcord/ 
 # Based on librewolf mk.py
 mkdir x86-ansi
-wget -q -O ./x86-ansi/nsProcess.dll https://shorsh.de/upload/we7v/nsProcess.dll
+wget -q -O ./x86-ansi/nsProcess.dll https://sanghai.org/files/nsProcess.dll
 wget -q -O ./vc_redist.x64.exe https://aka.ms/vs/17/release/vc_redist.x64.exe
 cp ../windows/setup.nsi .
 cp ../windows/datcord.ico .
