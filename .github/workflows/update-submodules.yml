@@ -16,8 +16,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: runsascoded/update-submodules@v1
+      - uses: actions/checkout@v2
         with:
-          token: ${{ secrets.TOKEN }}
-      - run: echo "Pushed new commit ${{ steps.update.outputs.sha }} with updated submodules"
+          submodules: "recursive"
+
+      - name: Update Submodules
+        run: |
+          git pull --recurse-submodules
+          git submodule update --remote --recursive
+          git config --global user.name 'Submodule Updater'
+          git config --global user.email 'bot@noreply.github.com'
+          git commit -am "Update Submodules"
+      
+      - name: GitHub Push
+        # You may pin to the exact commit or the version.
+        # uses: ad-m/github-push-action@40bf560936a8022e68a3c00e7d2abefaf01305a6
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          # Token for the repo. Can be passed in using $\{{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.TOKEN }}
