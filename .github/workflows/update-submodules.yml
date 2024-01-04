@@ -26,7 +26,7 @@ jobs:
           git submodule update --remote --recursive
           git config --global user.name 'Submodule Updater'
           git config --global user.email 'bot@noreply.github.com'
-          git commit -am "Update Submodules"
+          git commit -am "Update Submodules" || true
       
       - name: GitHub Push
         # You may pin to the exact commit or the version.
