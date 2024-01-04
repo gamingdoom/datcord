@@ -20,3 +20,4 @@ jobs:
       - uses: runsascoded/update-submodules@v1
         with:
           token: ${{ secrets.TOKEN }}
+      - run: echo "Pushed new commit ${{ steps.update.outputs.sha }} with updated submodules"
