@@ -2,7 +2,7 @@
     "appName": "Datcord",
     "internalAppName": "datcord",
     "url": "https://discord.com/app",
-    "logoSvgFilePath": "/home/pranay/datcord/resources/datcord.svg",
+    "logoSvgFilePath": "../../datcord/resources/datcord.svg",
     "platforms": [
         "linux",
         "appimage",
