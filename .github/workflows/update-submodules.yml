@@ -3,9 +3,9 @@ name: Update Submodules
 # Controls when the action will run.
 on:
   push:
-    branches: [ "neutron", "master", "unstable" ]
-  pull_request:
-    branches: [ "master" ]
+#    branches: [ "neutron", "master", "unstable" ]
+#  pull_request:
+#    branches: [ "master" ]
     
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -17,16 +17,6 @@ jobs:
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
-      - name: Pull & update submodules recursively
-        run: |
-          git submodule update --init --recursive
-          git submodule update --recursive --remote
-
-      - name: Commit & push changes
-        run: |
-          git config --global user.name ${{ secrets.USER_NAME }}
-          git config --global user.email ${{ secrets.USER_EMAIL }}
-          git commit -am "Update Neutron"
-          git push
+      - uses: runsascoded/update-submodules@v1
+        with:
+          token: ${{ secrets.TOKEN }}
