@@ -2,14 +2,14 @@ name: Update Submodules
 
 # Controls when the action will run.
 on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
   push:
-#    branches: [ "neutron", "master", "unstable" ]
+    branches: [ "neutron", "master", "unstable" ]
 #  pull_request:
 #    branches: [ "master" ]
     
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
 jobs:
   # This workflow contains a single job called "update"
   update:
