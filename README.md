@@ -1,7 +1,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/gamingdoom/datcord">
-    <img src="src/changed/browser/branding/datcord/default256.png" alt="Logo" width="80" height="80">
+    <img src="resources/datcord.svg" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Datcord</h3>

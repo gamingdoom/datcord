@@ -1,0 +1,19 @@
+{
+    "appName": "Datcord",
+    "internalAppName": "datcord",
+    "url": "https://discord.com/app",
+    "logoSvgFilePath": "../../resources/datcord.svg",
+    "platforms": [
+        "linux",
+        "appimage",
+        "windows"
+    ],
+    "extensionURLs": [
+        "NEUTRON_OPEN_IN_DEFAULT_BROWSER_EXTENSION_LOCATION"
+    ],
+    "version": "0.4.2",
+    "projectURL": "https://github.com/gamingdoom/datcord",
+    "projectHelpURL": "https://github.com/gamingdoom/datcord/issues",
+    "openInDefaultBrowser": true,
+    "openInDefaultBrowserRegex": "http[s]?://discord.com"
+}
