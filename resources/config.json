@@ -15,5 +15,6 @@
     "projectURL": "https://github.com/gamingdoom/datcord",
     "projectHelpURL": "https://github.com/gamingdoom/datcord/issues",
     "openInDefaultBrowser": true,
-    "openInDefaultBrowserRegex": "http[s]?://discord.com"
+    "openInDefaultBrowserRegex": "http[s]?://discord.com",
+    "runInBackground": true
 }
