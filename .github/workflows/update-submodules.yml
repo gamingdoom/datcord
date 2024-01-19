@@ -6,12 +6,9 @@ on:
   workflow_dispatch:
   
   schedule:
-    - cron: "30 * * * *" 
-#  pull_request:
-#    branches: [ "master" ]
-    
+    - cron: "0 12 * * *" 
+
 jobs:
-  # This workflow contains a single job called "update"
   update:
     runs-on: ubuntu-latest
 
