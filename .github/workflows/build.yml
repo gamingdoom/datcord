@@ -37,9 +37,8 @@ jobs:
           cd neutron
           python configurator.py --config-file=../resources/config.json
           cd build
-          alias sudo=true
+          echo "sed -i 's/self.run_as_root(command)//g' mozilla-unified/python/mozboot/mozboot/archlinux.py" >> src/scripts/build/download-firefox-source
           python build.py
-          unalias sudo
 
       - name: Upload windows installer
         uses: actions/upload-artifact@v2.2.4
