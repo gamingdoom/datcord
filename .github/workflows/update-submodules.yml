@@ -16,6 +16,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: "recursive"
+          jobs: 8
 
       - name: Update Submodules
         run: |
