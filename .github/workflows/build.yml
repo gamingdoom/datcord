@@ -34,7 +34,12 @@ jobs:
 
       - name: Build
         run: |
-          ./build.sh
+          cd neutron
+          python configurator.py --config-file=../resources/config.json
+          cd build
+          alias sudo=true
+          python build.py
+          unalias sudo
 
       - name: Upload windows installer
         uses: actions/upload-artifact@v2.2.4
