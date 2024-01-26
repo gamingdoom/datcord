@@ -37,7 +37,7 @@ jobs:
           cd neutron
           python configurator.py --config-file=../resources/config.json
           cd build
-          echo "sed -i 's/self.run_as_root(command)//g' mozilla-unified/python/mozboot/mozboot/archlinux.py" >> src/scripts/build/download-firefox-source
+          printf "\nsed -i 's/self.run_as_root(command)//g' mozilla-unified/python/mozboot/mozboot/archlinux.py" >> src/scripts/build/download-firefox-source
           python build.py
 
       - name: Upload windows installer
