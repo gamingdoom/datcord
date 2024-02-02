@@ -5,8 +5,11 @@
     "logoSvgFilePath": "../../resources/datcord.svg",
     "platforms": [
         "linux",
+	"linux-aarch64",
         "appimage",
-        "windows"
+        "windows",
+	"mac-arm",
+	"mac-intel"
     ],
     "extensionURLs": [
         "NEUTRON_OPEN_IN_DEFAULT_BROWSER_EXTENSION_LOCATION"
