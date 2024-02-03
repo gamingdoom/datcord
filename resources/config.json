@@ -5,8 +5,8 @@
     "logoSvgFilePath": "../../resources/datcord.svg",
     "platforms": [
         "linux",
-	"linux-aarch64",
         "appimage",
+	"linux-aarch64",
         "windows",
 	"mac-arm",
 	"mac-intel"
