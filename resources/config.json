@@ -7,6 +7,7 @@
         "linux",
         "appimage",
 	"linux-aarch64",
+	"appimage-aarch64",
         "windows",
 	"mac-arm",
 	"mac-intel"
