@@ -64,13 +64,21 @@ jobs:
           # A file, directory or wildcard pattern that describes what to upload
           path: neutron/build/datcord-linux-aarch64.tar.bz2
 
-      - name: Upload Appimage
+      - name: Upload Appimage for x86_64
         uses: actions/upload-artifact@v2.2.4
         with:
           # Artifact name
           name: datcord-appimage-x86_64
           # A file, directory or wildcard pattern that describes what to upload
           path: neutron/build/Datcord-x86_64.AppImage
+      
+      - name: Upload Appimage for aarch64
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          # Artifact name
+          name: datcord-appimage-aarch64
+          # A file, directory or wildcard pattern that describes what to upload
+          path: neutron/build/Datcord-aarch64.AppImage
 
       - name: Upload MacOS aarch64 installer
         uses: actions/upload-artifact@v2.2.4
