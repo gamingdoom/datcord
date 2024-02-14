@@ -21,8 +21,8 @@ jobs:
         run: |
           git pull --recurse-submodules
           git submodule update --remote
-          git config --global user.name 'Submodule Updater'
+          git config --global user.name 'Neutron Updater'
           git config --global user.email 'bot@noreply.github.com'
           git remote set-url origin https://x-access-token:${{ secrets.TOKEN }}@github.com/${{ github.repository }}
-          git commit -am "Update Submodules" && git push || echo "No changes to commit"
+          git commit -am "Update Neutron" && git push || echo "No changes to commit"
           
