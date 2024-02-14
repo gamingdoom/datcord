@@ -40,7 +40,7 @@ I don't use Discord/Datcord anymore because of their [terrible TOS](https://tosd
 	    ```
 	    tar -xvf datcord-linux-x86_64.tar
 	    cd datcord
-	    ./datcord
+	    ./launch-app
 	    ```
  - # Windows
    - The Windows installer is available from releases.
