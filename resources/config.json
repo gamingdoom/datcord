@@ -15,7 +15,7 @@
     "extensionURLs": [
         "NEUTRON_OPEN_IN_DEFAULT_BROWSER_EXTENSION_LOCATION"
     ],
-    "version": "0.5.2",
+    "version": "1.0.0",
     "projectURL": "https://github.com/gamingdoom/datcord",
     "projectHelpURL": "https://github.com/gamingdoom/datcord/issues",
     "openInDefaultBrowser": true,
