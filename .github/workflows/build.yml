@@ -41,7 +41,7 @@ jobs:
           python build.py
 
       - name: Upload windows installer
-        uses: actions/upload-artifact@v2.2.4
+        uses: actions/upload-artifact@v4
         with:
           # Artifact name
           name: win64-installer
@@ -49,7 +49,7 @@ jobs:
           path: neutron/build/work/appSetup-win64.exe
 
       - name: Upload linux x86_64 tarball
-        uses: actions/upload-artifact@v2.2.4
+        uses: actions/upload-artifact@v4
         with:
           # Artifact name
           name: datcord-linux-x86_64
@@ -57,7 +57,7 @@ jobs:
           path: neutron/build/datcord-linux-x86_64.tar.bz2
 
       - name: Upload linux aarch64 tarball
-        uses: actions/upload-artifact@v2.2.4
+        uses: actions/upload-artifact@v4
         with:
           # Artifact name
           name: datcord-linux-aarch64
@@ -65,7 +65,7 @@ jobs:
           path: neutron/build/datcord-linux-aarch64.tar.bz2
 
       - name: Upload Appimage for x86_64
-        uses: actions/upload-artifact@v2.2.4
+        uses: actions/upload-artifact@v4
         with:
           # Artifact name
           name: datcord-appimage-x86_64
@@ -73,7 +73,7 @@ jobs:
           path: neutron/build/Datcord-x86_64.AppImage
       
       - name: Upload Appimage for aarch64
-        uses: actions/upload-artifact@v2.2.4
+        uses: actions/upload-artifact@v4
         with:
           # Artifact name
           name: datcord-appimage-aarch64
@@ -81,7 +81,7 @@ jobs:
           path: neutron/build/Datcord-aarch64.AppImage
 
       - name: Upload MacOS aarch64 installer
-        uses: actions/upload-artifact@v2.2.4
+        uses: actions/upload-artifact@v4
         with:
           # Artifact name
           name: datcord-darwin-aarch64
@@ -89,7 +89,7 @@ jobs:
           path: neutron/build/datcord-darwin-aarch64.dmg
           
       - name: Upload MacOS x86_64 installer
-        uses: actions/upload-artifact@v2.2.4
+        uses: actions/upload-artifact@v4
         with:
           # Artifact name
           name: datcord-darwin-x86_64
