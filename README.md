@@ -50,3 +50,6 @@ I don't use Discord/Datcord anymore because of their [terrible TOS](https://tosd
 git clone https://github.com/gamingdoom/datcord.git --recurse-submodules -j8 && cd datcord
 ./build.sh
 ```
+# Credits
+- [@TheRedXD](https://github.com/TheRedXD), who designed Datcord's logo.
+- Everyone who created issues.
