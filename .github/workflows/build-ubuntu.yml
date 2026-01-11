@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Build
+name: Build (Ubuntu Host)
 
 # Controls when the workflow will run
 on:
@@ -19,7 +19,7 @@ jobs:
   build:
     if: "!contains(github.event.commits[0].author, 'Submodule Updater')"
     # The type of runner that the job will run on
-    runs-on: self-hosted
+    runs-on: ubuntu-22.04
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -34,31 +34,27 @@ jobs:
 
       - name: Build
         run: |
-          # Remove deb and deb-aarch64, since we're building on arch here
-          sed -i 's/"deb",//g' resources/config.json
-          sed -i 's/"deb-aarch64",//g' resources/config.json
+          # Remove everything we dont want to build
+          perl -0777 -i -pe 's/"platforms":\s*\\?\[(?:\\.|[^\\\]])*?\]/"platforms": ["deb", "deb-aarch64", "appimage", "appimage-aarch64"]/gs' resources/config.json
 
           cd neutron
-          python configurator.py --config-file=../resources/config.json
-          cd build
-          printf "\nsed -i 's/self.run_as_root(command)//g' mozilla-unified/python/mozboot/mozboot/archlinux.py" >> src/scripts/build/download-firefox-source
-          python build.py
+          python configurator.py --config-file=../resources/config.json -b
 
-      - name: Upload windows installer
+      - name: Upload deb package (x86_64)
         uses: actions/upload-artifact@v4
         with:
           # Artifact name
-          name: win64-installer
+          name: datcord-deb-x86_64
           # A file, directory or wildcard pattern that describes what to upload
-          path: neutron/build/work/appSetup-win64.exe
+          path: neutron/build/datcord-x86_64-*.deb
 
-      - name: Upload linux x86_64 tarball
+      - name: Upload deb package (aarch64)
         uses: actions/upload-artifact@v4
         with:
           # Artifact name
-          name: datcord-linux-x86_64
+          name: datcord-deb-aarch64
           # A file, directory or wildcard pattern that describes what to upload
-          path: neutron/build/datcord-linux-x86_64.tar.bz2
+          path: neutron/build/datcord-aarch64-*.deb
 
       - name: Upload linux aarch64 tarball
         uses: actions/upload-artifact@v4
@@ -83,19 +79,3 @@ jobs:
           name: datcord-appimage-aarch64
           # A file, directory or wildcard pattern that describes what to upload
           path: neutron/build/Datcord-aarch64.AppImage
-
-      - name: Upload MacOS aarch64 installer
-        uses: actions/upload-artifact@v4
-        with:
-          # Artifact name
-          name: datcord-darwin-aarch64
-          # A file, directory or wildcard pattern that describes what to upload
-          path: neutron/build/datcord-darwin-aarch64.dmg
-          
-      - name: Upload MacOS x86_64 installer
-        uses: actions/upload-artifact@v4
-        with:
-          # Artifact name
-          name: datcord-darwin-x86_64
-          # A file, directory or wildcard pattern that describes what to upload
-          path: neutron/build/datcord-darwin-x86_64.dmg

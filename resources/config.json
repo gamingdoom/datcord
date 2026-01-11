@@ -6,16 +6,20 @@
     "platforms": [
         "linux",
         "appimage",
-	"linux-aarch64",
-	"appimage-aarch64",
+        "deb",
+        "linux-aarch64",
+        "appimage-aarch64",
+        "deb-aarch64",
         "windows",
-	"mac-arm",
-	"mac-intel"
+        "mac-arm",
+        "mac-intel"
     ],
     "extensionURLs": [
         "NEUTRON_OPEN_IN_DEFAULT_BROWSER_EXTENSION_LOCATION"
     ],
-    "version": "1.0.0",
+    "version": "0.6.0",
+    "author": "gamingdoom",
+    "projectDescription": "An open-source Discord client using Firefox.",
     "projectURL": "https://github.com/gamingdoom/datcord",
     "projectHelpURL": "https://github.com/gamingdoom/datcord/issues",
     "openInDefaultBrowser": true,
