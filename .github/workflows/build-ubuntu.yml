@@ -59,7 +59,7 @@ jobs:
           sudo ./llvm.sh 18
           export CC=/usr/bin/clang-18 CXX=/usr/bin/clang++-18
 
-          pip install -r requirements.txt
+          pip install -r neutron/requirements.txt
 
           # Remove everything we dont want to build
           perl -0777 -i -pe 's/"platforms":\s*\\?\[(?:\\.|[^\\\]])*?\]/"platforms": ["deb", "deb-aarch64", "appimage", "appimage-aarch64"]/gs' resources/config.json
