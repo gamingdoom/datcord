@@ -5,18 +5,16 @@
     "logoSvgFilePath": "../../resources/datcord.svg",
     "platforms": [
         "linux",
-        "appimage",
         "deb",
+        "appimage",
+        "windows",
         "linux-aarch64",
         "appimage-aarch64",
         "deb-aarch64",
-        "windows",
         "mac-arm",
         "mac-intel"
     ],
-    "extensionURLs": [
-        "NEUTRON_OPEN_IN_DEFAULT_BROWSER_EXTENSION_LOCATION"
-    ],
+    "extensionURLs": [],
     "version": "0.6.0",
     "author": "gamingdoom",
     "projectDescription": "An open-source Discord client using Firefox.",
