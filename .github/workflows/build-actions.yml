@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-${{ matrix.name }}:
+  build:
     if: "!contains(github.event.commits[0].author, 'Submodule Updater')"
     runs-on: ${{ matrix.os }}
     strategy:
