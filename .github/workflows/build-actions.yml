@@ -12,7 +12,6 @@ on:
 jobs:
   build:
     if: "!contains(github.event.commits[0].author, 'Submodule Updater')"
-    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false # TODO change this once I finish debugging everything
       matrix:
@@ -48,6 +47,8 @@ jobs:
             platforms: windows
             artifact-names: ['datcord-windows-x86_64', '', '']
             artifact-paths: ['neutron/build/datcord-setup-win64.exe', '', '']
+
+    runs-on: ${{ matrix.os }}
 
     steps:
       - name: Free Disk Space (Ubuntu)
