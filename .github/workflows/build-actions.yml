@@ -46,7 +46,7 @@ jobs:
             platforms: windows
             artifact-names: ['datcord-windows-x86_64', '', '']
             artifact-paths: ['neutron/build/datcord-setup-win64.exe', '', '']
-            
+
     steps:
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@main
@@ -89,23 +89,23 @@ jobs:
           cd neutron
           python configurator.py --config-file=../resources/config.json -p ${{ matrix.platforms }} -b
 
-      - name: Upload artifact 0
+      - name: Upload artifact 1
         if: ${{ matrix['artifact-paths'][0] != '' }}
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix['artifact-names'][0] }}
           path: ${{ matrix['artifact-paths'][0] }}
 
-      - name: Upload artifact 1
+      - name: Upload artifact 2
         if: ${{ matrix['artifact-paths'][1] != '' }}
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix['artifact-names'][1] }}
           path: ${{ matrix['artifact-paths'][1] }}
 
-      - name: Upload artifact 1
-        if: ${{ matrix['artifact-paths'][1] != '' }}
+      - name: Upload artifact 3
+        if: ${{ matrix['artifact-paths'][2] != '' }}
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix['artifact-names'][1] }}
-          path: ${{ matrix['artifact-paths'][1] }}
+          name: ${{ matrix['artifact-names'][2] }}
+          path: ${{ matrix['artifact-paths'][2] }}
