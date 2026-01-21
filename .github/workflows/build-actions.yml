@@ -48,7 +48,7 @@ jobs:
             artifact-names: ['datcord-windows-x86_64', '', '']
             artifact-paths: ['neutron/build/datcord-setup-win64.exe', '', '']
 
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Free Disk Space (Ubuntu)
