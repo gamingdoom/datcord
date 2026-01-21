@@ -1,0 +1,113 @@
+name: Build (Actions Hosted)
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build-${{ matrix.name }}:
+    if: "!contains(github.event.commits[0].author, 'Submodule Updater')"
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false # TODO change this once I finish debugging everything
+      matrix:
+        include:
+          - os: ubuntu-22.04
+
+          - name: linux-x86_64
+            toolchain-name: x86_64-unknown-linux-gnu
+            platforms: linux,deb,appimage
+            artifact-names: ['datcord-linux-x86_64', 'datcord-deb-x86_64', 'datcord-appimage-x86_64']
+            artifact-paths: ['neutron/build/datcord-linux-x86_64.tar.bz2', 'neutron/build/datcord-x86_64-*.deb', 'neutron/build/Datcord-x86_64.AppImage'] 
+
+          - name: linux-aarch64
+            toolchain-name: aarch64-unknown-linux-gnu
+            platforms: linux-aarch64,deb-aarch64,appimage-aarch64
+            artifact-names: ['datcord-linux-aarch64', 'datcord-deb-aarch64', 'datcord-appimage-aarch64']
+            artifact-paths: ['neutron/build/datcord-linux-aarch64.tar.bz2', 'neutron/build/datcord-aarch64-*.deb', 'neutron/build/Datcord-aarch64.AppImage']
+
+          - name: darwin-x86_64
+            toolchain-name: x86_64-apple-darwin
+            platforms: mac-intel
+            artifact-names: ['datcord-darwin-x86_64', '', '']
+            artifact-paths: ['neutron/build/datcord-darwin-x86_64.dmg', '', '']
+        
+          - name: darwin-aarch64
+            toolchain-name: aarch64-apple-darwin
+            platforms: mac-arm
+            artifact-names: ['datcord-darwin-aarch64', '', '']
+            artifact-paths: ['neutron/build/datcord-darwin-aarch64.dmg', '', '']
+
+          - name: windows-x86_64
+            toolchain-name: x86_64-pc-windows-gnu
+            platforms: windows
+            artifact-names: ['datcord-windows-x86_64', '', '']
+            artifact-paths: ['neutron/build/datcord-setup-win64.exe', '', '']
+
+    steps:
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@main
+        with:
+          # this might remove tools that are actually needed,
+          # if set to "true" but frees about 6 GB
+          tool-cache: false
+        
+          # all of these default to true, but feel free to set to
+          # "false" if necessary for your workflow
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: false
+          docker-images: true
+          swap-storage: true
+
+      - name: Install LLVM and Clang
+        uses: KyleMayes/install-llvm-action@v2
+        with:
+          version: "18"
+          env: true
+
+      - name: Symlink libclang.so (Linux)
+        run: sudo ln -s libclang-18.so.1 /lib/x86_64-linux-gnu/libclang.so
+        working-directory: ${{ env.LLVM_PATH }}/lib
+        
+      - uses: actions/checkout@v3
+        with:
+          submodules: "recursive"
+
+      - name: Build
+        run: |
+          # Install deps
+          rustup target add ${{ matrix.toolchain-name }}
+          sudo apt install alsa
+
+          pip install -r neutron/requirements.txt
+
+          cd neutron
+          python configurator.py --config-file=../resources/config.json -p ${{ matrix.platforms }} -b
+
+      - name: Upload artifact 0
+        if: ${{ matrix['artifact-paths'][0] != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix['artifact-names'][0] }}
+          path: ${{ matrix['artifact-paths'][0] }}
+
+      - name: Upload artifact 1
+        if: ${{ matrix['artifact-paths'][1] != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix['artifact-names'][1] }}
+          path: ${{ matrix['artifact-paths'][1] }}
+
+      - name: Upload artifact 1
+        if: ${{ matrix['artifact-paths'][1] != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix['artifact-names'][1] }}
+          path: ${{ matrix['artifact-paths'][1] }}

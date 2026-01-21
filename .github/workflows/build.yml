@@ -46,7 +46,7 @@ jobs:
           # Artifact name
           name: win64-installer
           # A file, directory or wildcard pattern that describes what to upload
-          path: neutron/build/work/datcord-setup-win64.exe
+          path: neutron/build/datcord-setup-win64.exe
 
       - name: Upload linux x86_64 tarball
         uses: actions/upload-artifact@v4
