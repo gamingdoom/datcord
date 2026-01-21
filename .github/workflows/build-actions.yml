@@ -12,12 +12,11 @@ on:
 jobs:
   build:
     if: "!contains(github.event.commits[0].author, 'Submodule Updater')"
+    runs-on: ubuntu-22.04
     strategy:
       fail-fast: false # TODO change this once I finish debugging everything
       matrix:
         include:
-          - os: ubuntu-22.04
-
           - name: linux-x86_64
             toolchain-name: x86_64-unknown-linux-gnu
             platforms: linux,deb,appimage
@@ -47,9 +46,7 @@ jobs:
             platforms: windows
             artifact-names: ['datcord-windows-x86_64', '', '']
             artifact-paths: ['neutron/build/datcord-setup-win64.exe', '', '']
-
-    runs-on: ubuntu-22.04
-
+            
     steps:
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@main
