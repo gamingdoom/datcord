@@ -64,16 +64,6 @@ jobs:
           docker-images: true
           swap-storage: true
 
-      - name: Install LLVM and Clang
-        uses: KyleMayes/install-llvm-action@v2
-        with:
-          version: "18"
-          env: true
-
-      - name: Symlink libclang.so (Linux)
-        run: sudo ln -s libclang-18.so.1 /lib/x86_64-linux-gnu/libclang.so
-        working-directory: ${{ env.LLVM_PATH }}/lib
-        
       - uses: actions/checkout@v3
         with:
           submodules: "recursive"
@@ -83,6 +73,13 @@ jobs:
           # Install deps
           rustup target add ${{ matrix.toolchain-name }}
           sudo apt install alsa
+
+          wget https://apt.llvm.org/llvm.sh
+          chmod +x llvm.sh
+          sudo ./llvm.sh 18
+          export CC=/usr/bin/clang-18 CXX=/usr/bin/clang++-18
+          sudo mv /lib/x86_64-linux-gnu/libclang.so /lib/x86_64-linux-gnu/libclang.so.bak || true
+          sudo ln -s /lib/x86_64-linux-gnu/libclang-18.so.1 /lib/x86_64-linux-gnu/libclang.so
 
           pip install -r neutron/requirements.txt
 
