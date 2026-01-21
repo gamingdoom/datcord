@@ -73,15 +73,18 @@ jobs:
           # Install deps
           rustup target add ${{ matrix.toolchain-name }}
 
-          wget https://apt.llvm.org/llvm.sh
-          chmod +x llvm.sh
-          sudo ./llvm.sh 18
-          export CC=/usr/bin/clang-18 CXX=/usr/bin/clang++-18
+          # wget https://apt.llvm.org/llvm.sh
+          # chmod +x llvm.sh
+          # sudo ./llvm.sh 18
+          # export CC=/usr/bin/clang-18 CXX=/usr/bin/clang++-18
 
-          sudo apt install alsa pkg-config libssl-dev clang-18 libclang-18-dev llvm-18-dev
+          sudo apt install alsa pkg-config libssl-dev # clang-18 libclang-18-dev llvm-18-dev
 
-          sudo mv /lib/x86_64-linux-gnu/libclang.so /lib/x86_64-linux-gnu/libclang.so.bak || true
-          sudo ln -s /lib/x86_64-linux-gnu/libclang-18.so.1 /lib/x86_64-linux-gnu/libclang.so
+          # sudo mv /lib/x86_64-linux-gnu/libclang.so /lib/x86_64-linux-gnu/libclang.so.bak || true
+          # sudo ln -s /lib/x86_64-linux-gnu/libclang-18.so.1 /lib/x86_64-linux-gnu/libclang.so
+
+          unset CC
+          unset CXX
 
           pip install -r neutron/requirements.txt
 
