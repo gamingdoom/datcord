@@ -64,6 +64,13 @@ jobs:
           docker-images: true
           swap-storage: true
 
+      - name: Set up sccache
+        uses: mozilla-actions/sccache-action@v0.0.9
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/sccache
+          key: sccache-${{ matrix.name }}
+
       - uses: actions/checkout@v3
         with:
           submodules: "recursive"
@@ -84,6 +91,12 @@ jobs:
 
           cd neutron
           python configurator.py --config-file=../resources/config.json -p ${{ matrix.platforms }} -b
+
+      - name: Upload sccache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/sccache
+          key: sccache-${{ matrix.name }}
 
       - name: Upload artifact 1
         if: ${{ matrix['artifact-paths'][0] != '' }}
