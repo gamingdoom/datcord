@@ -66,6 +66,8 @@ jobs:
 
       - name: Set up sccache
         uses: mozilla-actions/sccache-action@v0.0.9
+
+      - name: Restore sccache
         uses: actions/cache@v4
         with:
           path: ~/.cache/sccache
