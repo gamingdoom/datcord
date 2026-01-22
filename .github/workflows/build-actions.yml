@@ -79,6 +79,9 @@ jobs:
 
           pip install -r neutron/requirements.txt
 
+          # Prevent runner from running out of RAM
+          export MOZ_PARALLEL_BUILD=2
+
           cd neutron
           python configurator.py --config-file=../resources/config.json -p ${{ matrix.platforms }} -b
 
