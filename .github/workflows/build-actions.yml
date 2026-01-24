@@ -97,7 +97,7 @@ jobs:
 
           sudo apt install alsa pkg-config libssl-dev msitools
 
-          if (( ${{ matrix.name == "linux-aarch64" }} )); then
+          if (( ${{ matrix.name }} == "linux-aarch64" )); then
             sudo apt install gcc-aarch64-linux-gnu
           fi
 
