@@ -83,15 +83,23 @@ jobs:
       - name: Build
         run: |
           # Create extra swap
-          sudo dd if=/dev/zero of=swapfile bs=1024 count=4194304
+          sudo dd if=/dev/zero of=swapfile bs=1024 count=6291456
           sudo mkswap swapfile
           sudo chmod 600 swapfile
           sudo swapon swapfile
+
+          # Patch openssl.cnf for osxcross-macports to enable ripemd160
+          sudo bash -c 'sed -i "s/\[provider_sect\]/\[provider_sect\]\nlegacy = legacy_sect/g" /etc/ssl/openssl.cnf'
+          sudo bash -c 'printf "\n[legacy_sect]\nactivate = 1\n" >> openssl.cnf'
 
           # Install deps
           rustup target add ${{ matrix.toolchain-name }}
 
           sudo apt install alsa pkg-config libssl-dev msitools
+
+          if (( ${{ matrix.name == "linux-aarch64" }} )); then
+            sudo apt install gcc-aarch64-linux-gnu
+          fi
 
           unset CC CXX
 
