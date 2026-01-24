@@ -82,6 +82,12 @@ jobs:
 
       - name: Build
         run: |
+          # Create extra swap
+          sudo dd if=/dev/zero of=swapfile bs=1024 count=4194304
+          sudo mkswap swapfile
+          sudo chmod 600 swapfile
+          sudo swapon swapfile
+
           # Install deps
           rustup target add ${{ matrix.toolchain-name }}
 
