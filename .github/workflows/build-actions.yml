@@ -71,7 +71,8 @@ jobs:
         uses: mozilla-actions/sccache-action@v0.0.9
 
       - name: Restore sccache
-        uses: actions/cache@v4
+        id: sccache-restore
+        uses: actions/cache/restore@v4
         with:
           path: ~/.cache/sccache
           key: sccache-${{ matrix.name }}
@@ -83,19 +84,19 @@ jobs:
       - name: Build
         run: |
           # Create extra swap
-          sudo dd if=/dev/zero of=swapfile bs=1024 count=6291456
+          sudo dd if=/dev/zero of=swapfile bs=1024 count=8388608
           sudo mkswap swapfile
           sudo chmod 600 swapfile
           sudo swapon swapfile
 
           # Patch openssl.cnf for osxcross-macports to enable ripemd160
           sudo bash -c 'sed -i "s/\[provider_sect\]/\[provider_sect\]\nlegacy = legacy_sect/g" /etc/ssl/openssl.cnf'
-          sudo bash -c 'printf "\n[legacy_sect]\nactivate = 1\n" >> openssl.cnf'
+          sudo bash -c 'printf "\n[legacy_sect]\nactivate = 1\n" >> /etc/ssl/openssl.cnf'
 
           # Install deps
           rustup target add ${{ matrix.toolchain-name }}
 
-          sudo apt install alsa pkg-config libssl-dev msitools
+          sudo apt install alsa pkg-config libssl-dev msitools debhelper
 
           if (( ${{ matrix.name }} == "linux-aarch64" )); then
             sudo apt install gcc-aarch64-linux-gnu
@@ -109,7 +110,8 @@ jobs:
           python configurator.py --config-file=../resources/config.json -p ${{ matrix.platforms }} -b
 
       - name: Upload sccache
-        uses: actions/cache@v4
+        uses: actions/cache/save@v4
+        if: always()
         with:
           path: ~/.cache/sccache
           key: sccache-${{ matrix.name }}
