@@ -109,11 +109,21 @@ jobs:
 
           sudo apt install alsa pkg-config libssl-dev msitools debhelper
 
-          sudo apt-get clean
-
           if (( ${{ matrix.name }} == "linux-aarch64" )); then
             sudo apt install gcc-aarch64-linux-gnu
+
+            wget https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-aarch64.AppImage
+            chmod +x appimagetool-aarch64.AppImage
+            sudo ln -s $PWD/appimagetool-aarch64.AppImage /usr/bin/appimagetool
           fi
+
+          if (( ${{ matrix.name }} == "linux-x86_64" )); then
+            wget https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage
+            chmod +x appimagetool-x86_64.AppImage
+            sudo ln -s $PWD/appimagetool-x86_64.AppImage /usr/bin/appimagetool
+          fi
+
+          sudo apt-get clean
 
           unset CC CXX
 
