@@ -117,8 +117,10 @@ jobs:
 
           unset CC CXX
 
-          pip install -r neutron/requirements.txt
+          printf "\n\noverride_dh_strip:\n\t#nop" >> neutron/src/packages/debian/rules
 
+          pip install -r neutron/requirements.txt
+          
           cd neutron
           python configurator.py --config-file=../resources/config.json -p ${{ matrix.platforms }} -b
 
