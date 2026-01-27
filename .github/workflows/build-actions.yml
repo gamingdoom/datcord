@@ -17,7 +17,7 @@ jobs:
     if: "!contains(github.event.commits[0].author, 'Submodule Updater')"
     runs-on: ubuntu-22.04
     strategy:
-      fail-fast: false # TODO change this once I finish debugging everything
+      fail-fast: false
       matrix:
         include:
           - name: linux-x86_64
@@ -83,6 +83,17 @@ jobs:
 
       - name: Build
         run: |
+          # Clear even more disk space
+          sudo apt-get remove -y '^aspnetcore-.*'
+          sudo apt-get remove -y '^dotnet-.*' --fix-missing
+          sudo apt-get remove -y 'php.*' --fix-missing 
+          sudo apt-get remove -y '^mongodb-.*' --fix-missing
+          sudo apt-get remove -y '^mysql-.*' --fix-missing
+          sudo apt-get remove -y azure-cli google-chrome-stable firefox powershell --fix-missing
+          sudo apt-get remove -y google-cloud-sdk --fix-missing
+          sudo apt-get remove -y google-cloud-cli
+          sudo apt-get autoremove -y
+
           # Create extra swap
           sudo dd if=/dev/zero of=swapfile bs=1024 count=8388608
           sudo mkswap swapfile
@@ -97,6 +108,8 @@ jobs:
           rustup target add ${{ matrix.toolchain-name }}
 
           sudo apt install alsa pkg-config libssl-dev msitools debhelper
+
+          sudo apt-get clean
 
           if (( ${{ matrix.name }} == "linux-aarch64" )); then
             sudo apt install gcc-aarch64-linux-gnu
