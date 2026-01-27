@@ -109,7 +109,7 @@ jobs:
 
           sudo apt install alsa pkg-config libssl-dev msitools debhelper
 
-          if (( ${{ matrix.name }} == "linux-aarch64" )); then
+          if [ "${{ matrix.name }}" == "linux-aarch64" ]; then
             sudo apt install gcc-aarch64-linux-gnu
 
             wget https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-aarch64.AppImage
@@ -117,7 +117,7 @@ jobs:
             sudo ln -s $PWD/appimagetool-aarch64.AppImage /usr/bin/appimagetool || true
           fi
 
-          if (( ${{ matrix.name }} == "linux-x86_64" )); then
+          if [ "${{ matrix.name }}" == "linux-x86_64" ]; then
             wget https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage
             chmod +x appimagetool-x86_64.AppImage
             sudo ln -s $PWD/appimagetool-x86_64.AppImage /usr/bin/appimagetool || true
