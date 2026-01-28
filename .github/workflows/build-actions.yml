@@ -109,7 +109,7 @@ jobs:
           # Install deps
           rustup target add ${{ matrix.toolchain-name }}
 
-          sudo apt install alsa pkg-config libssl-dev msitools debhelper binutils-mingw-w64-x86-64 gcc-mingw-w64-x86_64
+          sudo apt install alsa pkg-config libssl-dev msitools debhelper binutils-mingw-w64-x86-64 gcc-mingw-w64-x86-64
 
           if [ "${{ matrix.name }}" == "linux-aarch64" ]; then
             sudo apt install gcc-aarch64-linux-gnu
