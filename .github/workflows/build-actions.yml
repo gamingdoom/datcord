@@ -95,10 +95,10 @@ jobs:
           sudo apt-get autoremove -y
 
           # Create extra swap
-          sudo dd if=/dev/zero of=/swapfile bs=1024 count=8388608
-          sudo mkswap /swapfile
-          sudo chmod 600 /swapfile
-          sudo swapon /swapfile
+          sudo dd if=/dev/zero of=/swapfile_ bs=1024 count=8388608
+          sudo mkswap /swapfile_
+          sudo chmod 600 /swapfile_
+          sudo swapon /swapfile_
 
           # Patch openssl.cnf for osxcross-macports to enable ripemd160
           sudo bash -c 'sed -i "s/^\[provider_sect\]/\[provider_sect\]\nlegacy = legacy_sect/g" /etc/ssl/openssl.cnf'
@@ -131,8 +131,8 @@ jobs:
           python configurator.py --config-file=../resources/config.json -p ${{ matrix.platforms }} -b
 
           # Remove swapfile
-          sudo swapoff /swapfile
-          sudo rm -f /swapfile
+          sudo swapoff /swapfile_
+          sudo rm -f /swapfile_
 
       - name: Upload sccache
         uses: actions/cache/save@v4
