@@ -95,20 +95,21 @@ jobs:
           sudo apt-get autoremove -y
 
           # Create extra swap
-          sudo dd if=/dev/zero of=swapfile bs=1024 count=8388608
-          sudo mkswap swapfile
-          sudo chmod 600 swapfile
-          sudo swapon swapfile
+          sudo dd if=/dev/zero of=/swapfile bs=1024 count=8388608
+          sudo mkswap /swapfile
+          sudo chmod 600 /swapfile
+          sudo swapon /swapfile
 
           # Patch openssl.cnf for osxcross-macports to enable ripemd160
           sudo bash -c 'sed -i "s/^\[provider_sect\]/\[provider_sect\]\nlegacy = legacy_sect/g" /etc/ssl/openssl.cnf'
           sudo bash -c 'sed -i "s/^# activate = 1/activate = 1/g" /etc/ssl/openssl.cnf'
           sudo bash -c 'printf "\n[legacy_sect]\nactivate = 1\n" >> /etc/ssl/openssl.cnf'
+          cat /etc/ssl/openssl.cnf
 
           # Install deps
           rustup target add ${{ matrix.toolchain-name }}
 
-          sudo apt install alsa pkg-config libssl-dev msitools debhelper binutils-mingw-w64-x86-64
+          sudo apt install alsa pkg-config libssl-dev msitools debhelper binutils-mingw-w64-x86-64 gcc-mingw-w64-x86_64
 
           if [ "${{ matrix.name }}" == "linux-aarch64" ]; then
             sudo apt install gcc-aarch64-linux-gnu
@@ -130,8 +131,8 @@ jobs:
           python configurator.py --config-file=../resources/config.json -p ${{ matrix.platforms }} -b
 
           # Remove swapfile
-          sudo swapoff swapfile
-          sudo rm -f swapfile
+          sudo swapoff /swapfile
+          sudo rm -f /swapfile
 
       - name: Upload sccache
         uses: actions/cache/save@v4
