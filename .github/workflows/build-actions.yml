@@ -129,6 +129,10 @@ jobs:
           cd neutron
           python configurator.py --config-file=../resources/config.json -p ${{ matrix.platforms }} -b
 
+          # Remove swapfile
+          sudo swapoff swapfile
+          sudo rm -f swapfile
+
       - name: Upload sccache
         uses: actions/cache/save@v4
         if: always()
