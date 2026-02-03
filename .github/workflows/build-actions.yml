@@ -122,7 +122,7 @@ jobs:
           fi
 
           if [ "${{ matrix.name }}" = "windows-x86_64" ]; then
-            sudo apt install binutils-mingw-w64-x86-64 gcc-mingw-w64-x86-64 msitools
+            sudo apt install binutils-mingw-w64-x86-64 gcc-mingw-w64-x86-64 g++-mingw-w64-x86-64 msitools
           fi
 
           sudo apt-get clean
