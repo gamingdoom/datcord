@@ -15,7 +15,7 @@
         "mac-intel"
     ],
     "extensionURLs": [],
-    "version": "0.6.1",
+    "version": "0.6.2",
     "author": "gamingdoom",
     "projectDescription": "An open-source Discord client using Firefox.",
     "projectURL": "https://github.com/gamingdoom/datcord",
