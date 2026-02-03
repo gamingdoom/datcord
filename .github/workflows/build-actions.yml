@@ -95,7 +95,7 @@ jobs:
           sudo apt-get autoremove -y
 
           # Create extra swap
-          sudo dd if=/dev/zero of=/swapfile_ bs=1024 count=8388608
+          sudo dd if=/dev/zero of=/swapfile_ bs=1024 count=7864320
           sudo mkswap /swapfile_
           sudo chmod 600 /swapfile_
           sudo swapon /swapfile_
@@ -105,7 +105,6 @@ jobs:
           sudo bash -c 'sed -i "s/^\[provider_sect\]/\[provider_sect\]\nlegacy = legacy_sect/g" /etc/ssl/openssl.cnf'
           sudo bash -c 'sed -i "s/^# activate = 1/activate = 1/g" /etc/ssl/openssl.cnf'
           sudo bash -c 'printf "\n[legacy_sect]\nactivate = 1\n" >> /etc/ssl/openssl.cnf'
-          cat /etc/ssl/openssl.cnf
 
           # Install deps
           rustup target add ${{ matrix.toolchain-name }}
@@ -131,9 +130,6 @@ jobs:
           unset CC CXX
 
           printf "\n\noverride_dh_strip:\n\t#nop" >> neutron/src/packages/debian/rules
-
-          # Free up space earlier on Windows
-          printf "\n\nsudo swapoff /swapfile_\nsudo rm -f /swapfile_\n" >> neutron/src/scripts/build/windows
 
           pip install -r neutron/requirements.txt
           
