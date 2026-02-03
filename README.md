@@ -28,8 +28,8 @@
     - If you use Arch or an Arch-based distro, Datcord is available on the AUR:
 	
       ``aura -A datcord-bin``
-  - ## Debian
-    - If you use Debian, Ubuntu, Mint, etc., Datcord is available as a `.deb` file from [releases](https://github.com/gamingdoom/datcord/releases/).
+  - ## Debian, Ubuntu, Mint, etc.
+    - Datcord is available as a `.deb` file from [releases](https://github.com/gamingdoom/datcord/releases/).
   - ## Appimage
     - Grab the AppImage from [releases](https://github.com/gamingdoom/datcord/releases/) and run it. If you choose to integrate it, run
     
@@ -44,7 +44,8 @@
 - # Windows
   - Installers for Windows are available from [releases](https://github.com/gamingdoom/datcord/releases/).
 - # MacOS
-  - Highly experimental MacOS versions of Datcord are available from [releases](https://github.com/gamingdoom/datcord/releases/). I don't have any way to test these builds, so they might not work.
+  - Highly experimental MacOS versions of Datcord are available from [releases](https://github.com/gamingdoom/datcord/releases/).
+  - I don't have any way to test these builds, so they might not work.
 
 # Building from source
 ```
