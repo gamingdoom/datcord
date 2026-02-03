@@ -101,6 +101,7 @@ jobs:
           sudo swapon /swapfile_
 
           # Patch openssl.cnf for osxcross-macports to enable ripemd160
+          sudo bash -c 'sed -i "s/^#openssl_conf = openssl_init/openssl_conf = openssl_init/g" /etc/ssl/openssl.cnf' 
           sudo bash -c 'sed -i "s/^\[provider_sect\]/\[provider_sect\]\nlegacy = legacy_sect/g" /etc/ssl/openssl.cnf'
           sudo bash -c 'sed -i "s/^# activate = 1/activate = 1/g" /etc/ssl/openssl.cnf'
           sudo bash -c 'printf "\n[legacy_sect]\nactivate = 1\n" >> /etc/ssl/openssl.cnf'
@@ -109,15 +110,21 @@ jobs:
           # Install deps
           rustup target add ${{ matrix.toolchain-name }}
 
-          sudo apt install alsa pkg-config libssl-dev msitools debhelper binutils-mingw-w64-x86-64 gcc-mingw-w64-x86-64
+          sudo apt install alsa pkg-config libssl-dev debhelper
 
-          if [ "${{ matrix.name }}" == "linux-aarch64" ]; then
+          if [ "${{ matrix.name }}" = "linux-aarch64" ]; then
             sudo apt install gcc-aarch64-linux-gnu
           fi
 
-          wget https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage
-          chmod +x appimagetool-x86_64.AppImage
-          sudo ln -s $PWD/appimagetool-x86_64.AppImage /usr/bin/appimagetool || true
+          if [ "${{ matrix.name }}" = "linux-aarch64" ] || [ "${{ matrix.name }}" = "linux-x86_64" ]; then
+            wget https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage
+            chmod +x appimagetool-x86_64.AppImage
+            sudo ln -s $PWD/appimagetool-x86_64.AppImage /usr/bin/appimagetool || true
+          fi
+
+          if [ "${{ matrix.name }}" = "windows-x86_64" ]; then
+            sudo apt install binutils-mingw-w64-x86-64 gcc-mingw-w64-x86-64 msitools
+          fi
 
           sudo apt-get clean
 
@@ -125,14 +132,17 @@ jobs:
 
           printf "\n\noverride_dh_strip:\n\t#nop" >> neutron/src/packages/debian/rules
 
+          # Free up space earlier on Windows
+          printf "\n\nsudo swapoff /swapfile_\nsudo rm -f /swapfile_\n" >> neutron/src/scripts/build/windows
+
           pip install -r neutron/requirements.txt
           
           cd neutron
           python configurator.py --config-file=../resources/config.json -p ${{ matrix.platforms }} -b
 
           # Remove swapfile
-          sudo swapoff /swapfile_
-          sudo rm -f /swapfile_
+          sudo swapoff /swapfile_ || true
+          sudo rm -f /swapfile_ || true
 
       - name: Upload sccache
         uses: actions/cache/save@v4
