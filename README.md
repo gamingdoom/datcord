@@ -7,7 +7,7 @@
   <h3 align="center">Datcord</h3>
 
   <p align="center">
-    An open-source Discord client
+    An Open-Source Discord client
     <br/>
     <br/>
     <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/gamingdoom/datcord"> 
@@ -18,10 +18,7 @@
 </div>
 
 # About Datcord
-  Datcord is an open-source Discord client that respects your privacy. Datcord is a specialized version of Firefox (the official client is Chromium-based). Datcord handles emoji rendering better than the normal Discord client. Note that Discord can still track you even if you use Datcord. I chose Firefox for Datcord because Chromium-based browsers have a monopoly and if Firefox were to die out, only Chromium would be left.
-
-### Note: 
-I don't use Discord/Datcord anymore because of their [terrible TOS](https://tosdr.org/en/service/536) which Datcord can't protect you from. I am also very busy personally and don't have too much time to work on Datcord.
+  Datcord is an Open-Source Discord client that respects your privacy. Datcord is based on [Neutron](https://github.com/gamingdoom/neutron), which means that it uses Firefox/Gecko under the hood instead of Chromium. Datcord is also the primary sample application of Neutron, which combats the monopoly of Chromium-based browsers through the use of Firefox/Gecko to create a Progressive Web Applications (PWAs).
 
 # Install
 - # Linux
@@ -31,19 +28,23 @@ I don't use Discord/Datcord anymore because of their [terrible TOS](https://tosd
     - If you use Arch or an Arch-based distro, Datcord is available on the AUR:
 	
       ``aura -A datcord-bin``
+  - ## Debian
+    - If you use Debian, Ubuntu, Mint, etc., Datcord is available as a `.deb` file from [releases](https://github.com/gamingdoom/datcord/releases/).
   - ## Appimage
     - Grab the AppImage from [releases](https://github.com/gamingdoom/datcord/releases/) and run it. If you choose to integrate it, run
     
        ``~/Applications/Datcord-* --appimage-portable-home``
   - ## Tarball
-    - Grab the tarball from the releases then,
-	    ```
+    - Grab the appropriate tarball from the [releases](https://github.com/gamingdoom/datcord/releases/). Then:
+	    ```bash
 	    tar -xvf datcord-linux-x86_64.tar
 	    cd datcord
 	    ./launch-app
 	    ```
- - # Windows
-   - The Windows installer is available from releases.
+- # Windows
+  - Installers for Windows are available from [releases](https://github.com/gamingdoom/datcord/releases/).
+- # MacOS
+  - Highly experimental MacOS versions of Datcord are available from [releases](https://github.com/gamingdoom/datcord/releases/). I don't have any way to test these builds, so they might not work.
 
 # Building from source
 ```
