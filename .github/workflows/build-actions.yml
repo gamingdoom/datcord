@@ -94,8 +94,12 @@ jobs:
           sudo apt-get remove -y google-cloud-cli
           sudo apt-get autoremove -y
 
+          sudo rm -rf /opt/hostedtoolcache/CodeQL 
+          sudo rm -rf /opt/hostedtoolcache/go
+          sudo rm -rf /opt/hostedtoolcache/node
+
           # Create extra swap
-          sudo dd if=/dev/zero of=/swapfile_ bs=1024 count=7864320
+          sudo dd if=/dev/zero of=/swapfile_ bs=1024 count=8388608
           sudo mkswap /swapfile_
           sudo chmod 600 /swapfile_
           sudo swapon /swapfile_
